@@ -1,7 +1,105 @@
 .is-style-display-heading {
-	font-size: 60px;
-	font-style: normal;
+
+	font-size: 38px;
 	font-weight: 700;
 	letter-spacing: -1px;
-	line-height: 66px;
+	line-height: 43.7px;
+
+	@include respond-to($navigation,min) {
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 700;
+		letter-spacing: -1px;
+		line-height: 66px;
+	}
+
+}
+
+.is-style-eyebrow-heading {
+	color: var(--wp--preset--color--egyptian-blue);
+	font-size: 14px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	line-height: 28px;
+	text-transform: uppercase;
+}
+
+h1,
+.h1,
+%h1 {
+	font-size: 32px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	line-height: 42.88px;
+
+	@include respond-to($navigation,min) {
+
+		font-size: 48px;
+		font-weight: 700;
+		letter-spacing: -1px;
+		line-height: 58px;
+	}
+}
+
+h2,
+.h2,
+%h2 {
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: -0.4000000059604645px;
+	line-height: 31.2px;
+
+	@include respond-to($navigation,min) {
+		font-size: 36px;
+		font-weight: 700;
+		letter-spacing: -0.800000011920929px;
+		line-height: 51px;
+	}
+}
+
+h3,
+.h3,
+%h3 {
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -0.10000000149011612px;
+	line-height: 28px;
+
+	@include respond-to($navigation,min) {
+		font-size: 24px;
+		font-weight: 800;
+		letter-spacing: -0.10000000149011612px;
+		line-height: 31.68px;
+	}
+}
+
+h4,
+.h4,
+%h4 {
+
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: -0.10000000149011612px;
+	line-height: 28px;
+
+}
+
+h5,
+.h5,
+%h5 {
+
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0.10000000149011612px;
+	line-height: 24px;
+
+}
+
+h6,
+.h6,
+%h6 {
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: normal;
+	line-height: 20px;
 }
