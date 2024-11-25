@@ -112,7 +112,7 @@
 				},
 				{
 					"slug": "large",
-					"size": "clamp(1rem, 0.7778rem + 0.463vw, 1.125rem)",
+					"size": "max(1rem, min(2vw, 1.125rem))",
 					"name": "Large"
 				}
 			]

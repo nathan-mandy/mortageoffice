@@ -1,0 +1,24 @@
+p {
+	color: var(--wp--preset--color--charcoal);
+	font-weight: 500;
+	letter-spacing: 0.10000000149011612px;
+}
+
+.has-large-font-size {
+	line-height: 24px;
+	@include respond-to($navigation,min) {
+		line-height: 28px;
+	}
+
+}
+
+.has-medium-font-size {
+	line-height: 26px;
+
+}
+
+.has-small-font-size {
+	letter-spacing: normal;
+	line-height: 24px;
+
+}
