@@ -80,6 +80,11 @@
 					"color": "#35CD77"
 				},
 				{
+					"name": "Light Grey",
+					"slug": "light-grey",
+					"color": "#D9D9D9"
+				},
+				{
 					"name": "White",
 					"slug": "white",
 					"color": "#FFFFFF"
