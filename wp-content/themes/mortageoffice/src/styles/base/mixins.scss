@@ -6,7 +6,7 @@
  * Example: @include respond-to(small)
  * Example: @include respond-to(599px, 'max')
  */
- @mixin respond-to($breakpoint, $minmax: 'min', $autoreduce: true) {
+@mixin respond-to($breakpoint, $minmax: 'min', $autoreduce: true) {
 	@if map-has-key($breakpoints, $breakpoint) {
 		$value: map-get($breakpoints, $breakpoint);
 		@if $minmax == 'max' {
