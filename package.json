@@ -1,0 +1,14 @@
+{
+	"name": "skeletor",
+	"version": "1.0.0",
+	"description": "Skeletor",
+	"main": "index.js",
+	"scripts": {
+		"start": "export SKELETOR_HOST=https://skeletor.local/; npm run start --prefix wp-content/themes/projectname",
+		"build": "npm run build --prefix wp-content/themes/projectname"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org:madebyvital/skeletor.git"
+	}
+}

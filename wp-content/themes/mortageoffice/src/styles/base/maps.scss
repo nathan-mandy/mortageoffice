@@ -1,0 +1,26 @@
+/*   Maps
+	--------------------------------------------------------------------------  */
+
+/**
+ * Breakpoints
+ */
+
+$xsmall:400px;
+$small:600px;
+$medium:782px;
+$navigation:800px;
+$large:1024px;
+$xlarge:1198px;
+$xxlarge:1440px;
+$xxxlarge:1990px;
+
+$breakpoints:(
+	'xsmall':$xsmall,
+	'small':$small,
+	'medium':$medium,
+	'navigation':$navigation,
+	'large':$large,
+	'xlarge':$xlarge,
+	'xxlarge':$xxlarge,
+	'xxxlarge':$xxxlarge,
+);

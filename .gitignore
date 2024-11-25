@@ -95,11 +95,19 @@ error_log
 # Track Skeletor files
 !/.vscode
 !.gitignore
-!/README.md
-!/_bitbucket-pipelines.yml
+!/.eslintrc.js
+!/.eslintignore
+!/.nvmrc
+!/.stylelintrc
+!/.wp-env.json
 !/bitbucket-pipelines.yml
-!/install.conf
-!/install.sh
+!/composer.json
+!/package-lock.json
+!/package.json
+!/postcss.config.js
+!/webpack.config.js
+!/README.md
+
 
 # Track specific plugins
 #!wp-content/mu-plugins/foo/
@@ -110,3 +118,5 @@ error_log
 !wp-content/themes/mortageoffice/
 
 # Track specific files
+# But NOT the build folder!
+wp-content/themes/mortageoffice/build/

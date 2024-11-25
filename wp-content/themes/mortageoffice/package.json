@@ -1,21 +1,38 @@
 {
-	"name": "themedir",
+	"name": "mortageoffice",
 	"version": "1.0.0",
-	"description": "",
+	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"lint": "wp-scripts lint-js ./src",
-		"build": "wp-scripts build"
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:composer-install": "wp-env run wordpress composer install -n",
+		"cli": "wp-env run cli",
+		"build": "wp-scripts build",
+		"start": "wp-scripts start --hot"
 	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
 	"devDependencies": {
-		"@wordpress/scripts": "^26.14.0",
+		"@wordpress/scripts": "^28.4.0",
+		"iconfont-webpack5-plugin": "^5.0.4",
 		"postcss-inline-svg": "^6.0.0",
-		"postcss-preset-env": "^9.1.4",
-		"postcss-pxtorem": "^6.0.0",
+		"postcss-preset-env": "^9.6.0",
+		"postcss-pxtorem": "^6.1.0",
 		"postcss-sort-media-queries": "^5.2.0",
-		"postcss-unique-selectors": "^6.0.0",
+		"postcss-unique-selectors": "^7.0.1",
 		"standard": "^17.1.0",
-		"stylelint-order": "^6.0.3",
-		"stylelint-webpack-plugin": "^4.1.1"
+		"stylelint-order": "^6.0.4",
+		"stylelint-webpack-plugin": "^5.0.1"
+	},
+	"dependencies": {
+		"classnames": "^2.5.1",
+		"modaal": "^0.4.4"
+	},
+	"prettier": {
+		"useTabs": true,
+		"semi": true,
+		"trailingComma": "all",
+		"singleQuote": true
 	}
 }
