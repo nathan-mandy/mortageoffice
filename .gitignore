@@ -117,6 +117,5 @@ error_log
 !wp-content/themes/skeletor-core/
 !wp-content/themes/mortageoffice/
 
-# Track specific files
 # But NOT the build folder!
 wp-content/themes/mortageoffice/build/
