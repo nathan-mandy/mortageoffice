@@ -1,0 +1,49 @@
+/**
+ * Builds media query with either a map or unit value
+ * @param {Mixed} $breakpoint - the value to break upon. Can be a mapped value or an applicable measurement (800px, et al)
+ * @param {String} $minmax ('min') - the polarity. should be 'min' or 'max'
+ * @param {Bool} $autoreduce (true) - Whether or not to reduce the breakpoint by 1px when using a mapped breakpoint AND max
+ * Example: @include respond-to(small)
+ * Example: @include respond-to(599px, 'max')
+ */
+ @mixin respond-to($breakpoint, $minmax: 'min', $autoreduce: true) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		$value: map-get($breakpoints, $breakpoint);
+		@if $minmax == 'max' {
+			@if $autoreduce {
+				$value: $value - 1px;
+			}
+		}
+		@media screen and (#{$minmax}-width: #{$value}) {
+			@content;
+		}
+	} @else {
+		@media screen and (#{$minmax}-width: $breakpoint) {
+			@content;
+		}
+
+	}
+}
+
+/**
+ * Builds min/max media query for "in between" breakpoints
+ */
+@mixin respond-between($min, $max) {
+	@if (map-has-key($breakpoints, $min) and map-has-key($breakpoints, $max)) {
+		@media screen and (min-width: #{map-get($breakpoints, $min)}) and (max-width: #{map-get($breakpoints, $max)}) {
+			@content;
+		}
+	} @else if map-has-key($breakpoints, $min) {
+		@media screen and (min-width: #{map-get($breakpoints, $min)}) and (max-width: em($max)) {
+			@content;
+		}
+	} @else if map-has-key($breakpoints, $max) {
+		@media screen and (min-width: em($min)) and (max-width: #{map-get($breakpoints, $max)}) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: #{$min}) and (max-width:#{$max}) {
+			@content;
+		}
+	}
+}
