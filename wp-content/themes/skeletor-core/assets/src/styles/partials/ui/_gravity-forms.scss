@@ -1,0 +1,229 @@
+:root {
+	--form--field-size: 50px;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.gfield {
+	> * + * {
+		margin-top: 0.5rem;
+	}
+
+	label {
+		font-size: var(--wp--preset--font-size--small);
+	}
+
+	&.gfield_error {
+		select,
+		textarea,
+		input {
+			border-width: 2px;
+			border-color: var(--wp--custom--colors--validation);
+			background-color: var(--wp--custom--colors--validation-bg);
+			color: var(--wp--custom--colors--validation);
+		}
+	}
+}
+
+.gform_title {
+	@extend .h2;
+	color: var(--wp--custom--colors--heading);
+	text-align: center;
+}
+
+.validation_message,
+.gform_submission_error {
+	outline: none;
+	color: var(--wp--custom--colors--validation);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 700;
+	text-align: center;
+}
+
+.validation_message {
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	text-align: left;
+}
+
+.gfield_label {
+	color: var(--wp--custom--colors--body);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+}
+
+.gfield.hidden_label .gfield_label {
+	display: none;
+}
+
+.ginput_container {
+	label {
+		font-size: var(--wp--preset--font-size--small);
+	}
+}
+
+.gform_fields {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--custom--gutter-width--form);
+}
+
+.ginput_complex {
+	display: flex;
+	gap: var(--wp--custom--gutter-width--form);
+
+	@include respond-to(large, max) {
+		flex-wrap: wrap;
+	}
+
+	> * {
+		flex: 1 1 auto;
+		width: 100%;
+	}
+
+	span:last-of-type {
+		margin-right: 0;
+	}
+
+	.gf_clear {
+		display: none;
+	}
+}
+
+input[type='text'],
+input[type='number'],
+input[type='tel'],
+input[type='email'],
+input[type='password'],
+select,
+textarea {
+	display: block;
+	width: 100%;
+	min-height: var(--form--field-size, 50px);
+	padding-inline: 1em;
+	border: 1px solid var(--wp--custom--colors--input-border);
+	background-color: var(--wp--custom--colors--input-bg);
+	color: var(--wp--custom--colors--input);
+	font-family: family('base');
+	font-size: var(--wp--preset--font-size--medium);
+	transition: all 0.2s ease-out;
+
+	&::placeholder {
+		opacity: 0.5;
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
+		background-color: var(--wp--custom--colors--shaded-bg);
+	}
+}
+
+input[type='text'],
+input[type='number'],
+input[type='tel'],
+input[type='email'],
+input[type='radio'],
+input[type='checkbox'],
+select {
+	&:focus {
+		outline: none;
+	}
+}
+
+select {
+	background-image: none;
+	appearance: none;
+}
+
+.ginput_container_select,
+.ginput_container.ginput_container_address:is(.has_country, .has_state) {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 50px;
+		height: 50px;
+		color: var(--wp--custom--colors--button-bg);
+		font-size: 10px;
+		line-height: 50px;
+		text-align: center;
+		pointer-events: none;
+		font-icon: url('../images/chevron.svg');
+	}
+}
+
+.gfield-choice-input,
+.ginput_container_consent input {
+	width: var(--wp--preset--font-size--medium);
+	height: var(--wp--preset--font-size--medium);
+	accent-color: var(--wp--custom--colors--button-bg);
+}
+
+.gfield_checkbox,
+.gfield_radio,
+.ginput_container_consent {
+	label {
+		margin-left: 0.5rem;
+	}
+}
+
+.gchoice {
+	display: flex;
+
+	+ .gchoice {
+		margin-top: 0.25rem;
+	}
+}
+
+.gform_footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: var(--wp--custom--gutter-width--form);
+	row-gap: 0.5rem;
+
+	.gform_button {
+		@extend .wp-block-button__link;
+		width: 100%;
+	}
+}
+
+.skeletor-gform-hide-required-fields-indicator {
+	.gfield_label .gfield_required {
+		display: none;
+	}
+}
+
+/* our custom privacy policy link */
+
+.gform-privacy-policy {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	font-size: 0.8em;
+
+	a {
+		display: inline-block;
+		vertical-align: middle;
+		color: currentColor;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+		}
+	}
+}

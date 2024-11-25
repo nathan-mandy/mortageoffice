@@ -1,0 +1,8 @@
+.wp-block-table {
+	&.has-min-width-overflow {
+		> table {
+			min-width: var(--wp--style--global--content-size);
+			overflow-x: scroll;
+		}
+	}
+}

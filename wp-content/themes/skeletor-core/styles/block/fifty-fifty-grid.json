@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "50/50 Grid",
+	"description": "Group that uses CSS Grid to force children into 50% width",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"css": "& {display: grid !important;grid-template-columns:repeat(auto-fill, minmax(min(max(400px, 50vw), 100%), 1fr));} & > .wp-block-group { display: flex; flex-direction: column; justify-content: center } & > *+* { margin-top: 0 !important; } &.block-editor-block-list__block { grid-template-columns: 50% 50% !important; }"
+	}
+}

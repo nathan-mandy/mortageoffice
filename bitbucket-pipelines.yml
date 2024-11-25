@@ -1,0 +1,52 @@
+image: atlassian/default-image:4
+
+definitions:
+  steps:
+    - step: &build-assets
+        name: Build Child Theme Assets
+        caches:
+          - node
+        script:
+          - npm install --prefix=wp-content/themes/mortageoffice
+          - npm run build --env production
+        artifacts:
+          - wp-content/themes/mortageoffice/build/**
+
+pipelines:
+  branches:
+    develop:
+      - step: *build-assets
+
+      - step:
+          name: Push to Development Environment
+          deployment: Development
+          script:
+            - pipe: wpengine/wpe-site-deploy:v1
+              variables:
+                WPE_SSHG_KEY_PRIVATE: $WPE_SSHG_KEY_PRIVATE
+                WPE_ENV: $WPE_DEV_SERVER
+
+    staging:
+      - step: *build-assets
+
+      - step:
+          name: Push to Staging Environment
+          deployment: Staging
+          script:
+            - pipe: wpengine/wpe-site-deploy:v1
+              variables:
+                WPE_SSHG_KEY_PRIVATE: $WPE_SSHG_KEY_PRIVATE
+                WPE_ENV: $WPE_STG_SERVER
+
+    master:
+      - step: *build-assets
+
+      - step:
+          name: Push to Production Environment
+          deployment: Production
+          script:
+            - pipe: wpengine/wpe-site-deploy:v1
+              variables:
+                WPE_SSHG_KEY_PRIVATE: $WPE_SSHG_KEY_PRIVATE
+                WPE_ENV: $WPE_PROD_SERVER
+

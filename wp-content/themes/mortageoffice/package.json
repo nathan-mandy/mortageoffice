@@ -1,0 +1,21 @@
+{
+	"name": "themedir",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "wp-scripts lint-js ./src",
+		"build": "wp-scripts build"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.14.0",
+		"postcss-inline-svg": "^6.0.0",
+		"postcss-preset-env": "^9.1.4",
+		"postcss-pxtorem": "^6.0.0",
+		"postcss-sort-media-queries": "^5.2.0",
+		"postcss-unique-selectors": "^6.0.0",
+		"standard": "^17.1.0",
+		"stylelint-order": "^6.0.3",
+		"stylelint-webpack-plugin": "^4.1.1"
+	}
+}
