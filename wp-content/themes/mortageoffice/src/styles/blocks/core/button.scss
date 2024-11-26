@@ -32,3 +32,28 @@
 .is-style-fill .wp-block-button__link {
 	color: var(--wp--preset--color--charcoal-blue) !important;
 }
+
+.wp-block-button.is-style-text .wp-block-button__link {
+
+	padding: 0 !important;
+	letter-spacing: -0.2px;
+
+	&::after {
+		width: 16px;
+		height: 16px;
+		margin: 0 0 3px 6px;
+		transform: translateX(0) translateY(0);
+		border-radius: 100%;
+		background-color: var(--wp--custom--colors--button-bg) !important;
+		background-image: url('../src/images/forward-arrow.png');
+		background-repeat: no-repeat;
+		font-size: 24px;
+		line-height: 1;
+		content: '';
+	}
+
+}
+
+.wp-block-button.is-style-text .wp-block-button__link:hover::after {
+	transform: translateX(0.4rem) translateY(0) !important;
+}
