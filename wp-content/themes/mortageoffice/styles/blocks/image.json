@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "rounder-corners",
+	"title": "Rounder Corner",
+	"blockTypes": [
+		"core/image",
+		"core/group"
+	],
+	"styles": {
+		"border": {
+			"radius": "24px"
+		}
+	}
+}
