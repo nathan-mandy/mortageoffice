@@ -168,7 +168,7 @@
 				"xwide": "1330px"
 			},
 			"gutterWidth": {
-				"form": "16px",
+				"form": "10px",
 				"page": "max(24px, min(3vw, 64px))",
 				"column": "max(24px, min(3vw, 32px))"
 			},
