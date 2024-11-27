@@ -85,6 +85,11 @@
 					"color": "#D9D9D9"
 				},
 				{
+					"name": "Lemon Grass",
+					"slug": "lemon-grass",
+					"color": "#999999"
+				},
+				{
 					"name": "White",
 					"slug": "white",
 					"color": "#FFFFFF"
