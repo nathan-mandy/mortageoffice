@@ -130,3 +130,145 @@
 		background: none !important;
 	}
 }
+/* stylelint-disable  declaration-no-important */
+
+@mixin gfield_choice {
+	& {
+		display: none !important;
+	}
+
+	& + label {
+		--element-size: 24px;
+		--element-border-shadow: var(--wp--custom--colors--border);
+		position: relative;
+		display: inline;
+		margin-left: 0;
+		padding-left: calc(var(--element-size) + 10px);
+		color: currentColor;
+		font-size: 16px;
+		line-height: calc(24 / 16);
+		cursor: pointer;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: -1px;
+			left: 0;
+			display: block;
+			width: var(--element-size);
+			height: var(--element-size);
+			content: '';
+		}
+
+		&::before {
+			border: 1px solid #FFFFFF;
+			background-color: transparent;
+			transition: all 0.2s ease-out;
+		}
+
+		&::after {
+			z-index: 15;
+			top: -1px;
+			transform: scale(0);
+			background-repeat: no-repeat;
+			line-height: 24px;
+			transition: transform 0.1s ease-out 0.15s;
+			will-change: transform;
+		}
+	}
+
+	&:checked + label::after {
+		transform: scale(1);
+	}
+}
+
+// Radio-specific styles
+@mixin gfield_choice_radio {
+	// Apply border-radius by default, not only when checked
+
+	& + label::before,
+	& + label::after {
+		border-radius: 50%; // This will make the radio button circular by default
+	}
+
+	&:checked + label::before {
+		border: 1px solid var(--wp--preset--color--mint);
+		background-color: var(--wp--preset--color--mint);
+	}
+
+	&:checked + label::after {
+		transform: scale(0.33);
+		background-color: var(--wp--preset--color--charcoal-blue);
+	}
+}
+
+// Checkbox-specific styles
+@mixin gfield_choice_checkbox {
+	&:checked + label::after {
+		background-image: url('../src/images/form-checkbox.png');
+		color: var(--wp--preset--color--mint);
+		text-align: center;
+	}
+}
+
+.gfield-choice-input {
+	@include gfield_choice();
+
+	// Apply checkbox-specific styles within .gfield-choice-input
+	@at-root {
+		.gfield_checkbox & {
+			@include gfield_choice_checkbox();
+		}
+
+		[type='checkbox'] {
+			&.gfield-choice-input {
+				@include gfield_choice_checkbox();
+			}
+		}
+
+	}
+
+	// Apply radio-specific styles within .gfield-choice-input
+	@at-root {
+		.gfield_radio & {
+			@include gfield_choice_radio();
+		}
+
+		[type='radio'] {
+			&.gfield-choice-input {
+				@include gfield_choice_radio();
+			}
+		}
+	}
+}
+
+// Styles for consent checkboxes
+
+.ginput_container_consent {
+	> [type='checkbox'] {
+		+ label::before {
+			top: -5px !important;
+		}
+
+		+ label::after {
+			top: 1px !important;
+			margin-left: 4px;
+		}
+
+		@include gfield_choice();
+		@include gfield_choice_checkbox();
+	}
+
+	+ .gfield_consent_description {
+		margin-top: 18px;
+		padding: 10px;
+		border: 1px solid var(--wp--preset--color--light-grey);
+		font-size: 12px;
+		line-height: calc(24 / 14);
+	}
+}
+
+.gchoice {
+	align-items: center;
+	margin: 10px 0 ;
+}
