@@ -58,3 +58,38 @@
 .menu-link a:hover::after {
 	width: 100%;
 }
+
+.mega-menu {
+	max-width: 558px !important;
+}
+
+.sub-menu {
+	position: absolute;
+	z-index: 1 !important;
+	top: 62px !important;
+	left: 24% !important;
+	width: 558px !important;
+	padding: 40px 0 0 !important;
+	background: none !important;
+
+	@include respond-to($xxlarge,min) {
+		left: 32% !important;
+	}
+}
+
+.menu.main-menu .menu-item.menu-item-has-meganav .menu-item-object-wp_block {
+	width: 558px !important;
+	margin-left: 0 !important;
+}
+
+.main-menu li {
+	color: var(--wp--preset--color--charcoal);
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.10000000149011612px;
+	line-height: 24px;
+
+	@include respond-to($large,max) {
+		font-size: 15px;
+	}
+}

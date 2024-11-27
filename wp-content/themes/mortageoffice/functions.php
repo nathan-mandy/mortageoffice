@@ -5,4 +5,5 @@ $blocks = sprintf('%s/blocks/', $inc);
 
 require_once $inc . 'mustache.php';
 require_once $inc . 'enqueuer.php';
+require_once $inc . 'reusable-blocks/taxonomy.php';
 

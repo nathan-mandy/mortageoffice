@@ -57,3 +57,14 @@
 .wp-block-button.is-style-text .wp-block-button__link:hover::after {
 	transform: translateX(0.4rem) translateY(0) !important;
 }
+
+.form-button {
+	.wp-block-button__link {
+		padding: 8px 16px !important;
+		border-radius: 36px !important;
+		font-size: 14px;
+		font-weight: 800;
+		letter-spacing: 0.10000000149011612px;
+		line-height: 24px;
+	}
+}
