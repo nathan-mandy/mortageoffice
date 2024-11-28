@@ -41,7 +41,8 @@
 	}
 }
 
-.menu-link a {
+.menu-link a,
+.menu-item a {
 	position: relative;
 	text-decoration: none;
 	cursor: pointer;
@@ -52,7 +53,8 @@
 
 }
 
-.menu-link a::after {
+.menu-link a::after,
+.menu-item a::after {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -63,8 +65,17 @@
 	transition: width 0.3s ease;
 }
 
-.menu-link a:hover::after {
+.depth-1::after {
+	bottom: 8px !important;
+}
+
+.menu-link a:hover::after,
+.menu-item a:hover::after {
 	width: 100%;
+}
+
+.menu-item a {
+	display: inline-block !important;
 }
 
 .mega-menu {
@@ -72,173 +83,5 @@
 
 	@include respond-to($navigation,max) {
 		max-width: 100% !important;
-	}
-}
-
-.sub-menu {
-	position: absolute;
-	z-index: 1 !important;
-	top: 45px !important;
-	width: 558px !important;
-	padding: 0 !important;
-	transform: translateX(-25%) !important;
-	background: none !important;
-	@include respond-to($navigation,max) {
-		top: 0 !important;
-		left: 0!important;
-		width: 100% !important;
-		overflow: scroll;
-		background-color: #FFFFFF !important;
-	}
-}
-
-.menu.main-menu .menu-item.menu-item-has-meganav .menu-item-object-wp_block {
-	width: 558px !important;
-	margin-left: 0 !important;
-
-	@include respond-to($navigation,max) {
-		width: 100% !important;
-	}
-}
-
-.main-menu li {
-	color: var(--wp--preset--color--charcoal);
-	font-size: 16px;
-	font-weight: 700;
-	letter-spacing: 0.10000000149011612px;
-	line-height: 24px;
-
-	@include respond-to($large,max) {
-		font-size: 15px;
-	}
-}
-
-.menu.main-menu .menu-item:not(.menu-item-has-meganav) .menu-item-link.depth-0+.sub-menu {
-	z-index: -1 !important;
-	top: 45px !important;
-	left: auto !important;
-	width: 212px !important;
-	margin-left: -32px ;
-	padding: 24px 32px 20px 38px !important;
-	transform: none !important;
-	border: 1px solid #D7D7E4 !important;
-	border-radius: 24px;
-	background-color: #FFFFFF !important;
-	color: var(--wp--preset--color--charcoal) !important;
-	@include respond-to($navigation,max) {
-		z-index: 1 !important;
-		top: 0 !important;
-		left: 0!important;
-		width: 100% !important;
-		border: none !important;
-		border-radius: 0 !important;
-		background-color: #FFFFFF !important;
-	}
-}
-
-.menu.main-menu .sub-menu .menu-item-link {
-	font-size: 16px;
-	font-weight: 500;
-	letter-spacing: 0.10000000149011612px;
-	line-height: 43px;
-}
-
-.main-menu-column {
-	@include respond-to($navigation,max) {
-		flex-direction: column;
-		padding: 0 !important;
-		border: none !important;
-		border-radius: 0 !important;
-	}
-}
-
-.menu.main-menu .go-back {
-	margin-top: 10px;
-	background: none;
-	font-size: 14px !important;
-	font-weight: 500 !important;
-	line-height: 24px !important;
-	text-transform: none;
-
-	&::before {
-		top: 9px !important;
-		left: 0 !important;
-		width: 16px !important;
-		height: 16px !important;
-		margin: 0 0 3px 6px !important;
-		transform: none !important;
-		background-image: url('../src/images/back-arrow.png') !important;
-		background-repeat: no-repeat !important;
-		content: '' !important;
-	}
-}
-
-.menu.main-menu {
-	.wp-block-button__link {
-		font-size: var(--wp--preset--font-size--small);
-	}
-
-	> .menu-item {
-		position: relative;
-
-		> .menu-item-link {
-			&::before {
-				position: absolute;
-				bottom: -5px;
-				left: 0;
-				width: auto;
-				min-width: 0;
-				height: 3px;
-				background-color: var(--wp--preset--color--mint);
-				content: '';
-				transition: 0.3s ease all;
-			}
-		}
-	}
-
-	> .menu-item:hover,
-	> .menu-item.active {
-		> .menu-item-link::before {
-			min-width: 100%;
-			transition: 0.3s ease all;
-		}
-
-		> .menu-item-link {
-			color: currentColor;
-
-			.sub-menu-toggle::after {
-				transform: rotate(90deg) !important; //stylelint-disable-line
-				transition: 0.3s ease all;
-			}
-		}
-	}
-
-	.menu-item .sub-menu {
-		.sub-menu {
-			padding: calc(0.125 * var(--gap)) 0 calc(0.25 * var(--gap));
-			clip-path: none;
-		}
-	}
-}
-
-.industries-li {
-	ul {
-		margin-left: -40px !important;
-	}
-}
-
-.insights-li {
-	ul {
-		margin-left: -20px !important;
-	}
-}
-
-.main-menu {
-	gap: 32px;
-}
-
-.menu-item-link {
-	&:hover {
-		text-decoration: none !important;
 	}
 }
