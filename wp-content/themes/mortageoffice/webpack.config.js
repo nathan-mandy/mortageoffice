@@ -1,19 +1,19 @@
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
-const { resolve } = require('path');
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const { resolve } = require( 'path' );
 
-const app = resolve(`${process.cwd()}`);
-const src = `${app}/src`;
-const build = `${app}/build`;
+const app = resolve( `${ process.cwd() }` );
+const src = `${ app }/src`;
+const build = `${ app }/build`;
 
 const config = {
 	...defaultConfig,
 	target: 'web',
 	resolve: {
-		modules: ['node_modules', src],
+		modules: [ 'node_modules', src ],
 	},
 	entry: {
-		main: [`${src}/main.js`, `${src}/main.scss`],
-		admin: [`${src}/admin.js`, `${src}/admin.scss`],
+		main: [ `${ src }/main.js`, `${ src }/main.scss` ],
+		admin: [ `${ src }/admin.js`, `${ src }/admin.scss` ],
 	},
 	output: {
 		...defaultConfig.output,
@@ -21,12 +21,24 @@ const config = {
 	},
 	plugins: [
 		...defaultConfig.plugins,
-		new (require('stylelint-webpack-plugin'))({
+		new (require('stylelint-webpack-plugin'))( {
 			customSyntax: 'postcss-scss',
-			files: `${src}/styles`,
+			files: `${ src }/styles`,
 			fix: true,
-		}),
+		} ),
 	],
 };
+
+if (process.env.NODE_ENV !== 'production') {
+	config.devServer = {
+		...config.devServer,
+		allowedHosts: 'all',
+		proxy: {
+			'/': {
+				target: process.env.SKELETOR_HOST,
+			},
+		},
+	};
+}
 
 module.exports = config;

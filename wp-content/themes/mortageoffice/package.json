@@ -1,39 +1,40 @@
 {
-	"name": "mortageoffice",
+	"name": "starcompliance",
 	"version": "1.0.0",
+	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"env:start": "wp-env start",
-		"env:stop": "wp-env stop",
-		"env:composer-install": "wp-env run wordpress composer install -n",
-		"cli": "wp-env run cli",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "wp-scripts lint-js ./src",
 		"build": "wp-scripts build",
-		"start": "wp-scripts start --hot"
+		"start": "npx webpack serve"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org:madebyvital/star-compliance.git"
 	},
 	"author": "",
 	"license": "ISC",
-	"description": "",
-	"devDependencies": {
-		"@wordpress/scripts": "^28.4.0",
-		"iconfont-webpack5-plugin": "^5.0.4",
-		"postcss-inline-svg": "^6.0.0",
-		"postcss-preset-env": "^9.6.0",
-		"postcss-pxtorem": "^6.1.0",
-		"postcss-sort-media-queries": "^5.2.0",
-		"postcss-unique-selectors": "^7.0.1",
-		"sass": "^1.81.0",
-		"standard": "^17.1.0",
-		"stylelint-order": "^6.0.4",
-		"stylelint-webpack-plugin": "^5.0.1"
+	"bugs": {
+		"url": "https://bitbucket.org/madebyvital/star-compliance/issues"
 	},
+	"homepage": "https://bitbucket.org/madebyvital/star-compliance#readme",
 	"dependencies": {
-		"classnames": "^2.5.1",
+		"classnames": "^2.3.2",
+		"headroom.js": "^0.12.0",
 		"modaal": "^0.4.4"
 	},
-	"prettier": {
-		"useTabs": true,
-		"semi": true,
-		"trailingComma": "all",
-		"singleQuote": true
+	"devDependencies": {
+		"@wordpress/scripts": "^26.14.0",
+		"iconfont-webpack5-plugin": "^5.0.4",
+		"postcss-inline-svg": "^6.0.0",
+		"postcss-preset-env": "^9.1.4",
+		"postcss-pxtorem": "^6.0.0",
+		"postcss-sort-media-queries": "^5.2.0",
+		"postcss-unique-selectors": "^6.0.0",
+		"standard": "^17.1.0",
+		"stylelint-order": "^6.0.3",
+		"stylelint-webpack-plugin": "^4.1.1",
+		"webpack-cli": "^5.1.4"
 	}
 }

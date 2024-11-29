@@ -1,8 +1,9 @@
-const preset = require('postcss-preset-env');
-const pxtorem = require('postcss-pxtorem');
-const inlineSVG = require('postcss-inline-svg');
-const sortMediaQueries = require('postcss-sort-media-queries');
-const uniqueSelectors = require('postcss-unique-selectors');
+const preset = require( 'postcss-preset-env' );
+const pxtorem = require( 'postcss-pxtorem' );
+const inlineSVG = require( 'postcss-inline-svg' );
+const sortMediaQueries = require( 'postcss-sort-media-queries' );
+const uniqueSelectors = require( 'postcss-unique-selectors' );
+const IconfontWebpackPlugin = require('iconfont-webpack5-plugin');
 
 const pxToRemOptions = {
 	propWhiteList: [
@@ -28,12 +29,16 @@ const inlineSVGOptions = {
 	removeStroke: true,
 };
 
-module.exports = {
-	plugins: [
-		preset(),
-		pxtorem(pxToRemOptions),
-		inlineSVG(inlineSVGOptions),
-		sortMediaQueries(),
-		uniqueSelectors(),
-	],
-};
+module.exports = (context) => {
+	return {
+		plugins: [
+			new IconfontWebpackPlugin(context.webpackLoaderContext),
+			preset(),
+			pxtorem(pxToRemOptions),
+			inlineSVG(inlineSVGOptions),
+			sortMediaQueries(),
+			uniqueSelectors(),
+		],
+	};
+}
+

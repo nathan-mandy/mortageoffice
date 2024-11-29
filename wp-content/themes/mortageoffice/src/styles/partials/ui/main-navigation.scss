@@ -175,7 +175,7 @@
 .main-menu {
 	gap: 32px;
 
-	@include respond-to($xlarge,max){
+	@include respond-to($xlarge,max) {
 		gap: 24px;
 	}
 }
@@ -209,6 +209,7 @@
 		}
 	}
 }
+
 .header .header-content {
 	align-items: end !important;
 }
