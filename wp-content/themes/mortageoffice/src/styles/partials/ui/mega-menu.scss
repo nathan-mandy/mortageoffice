@@ -21,21 +21,21 @@
 .icon-content {
 	border-right: 1px solid #D7D7E4;
 
-	@include respond-to($navigation,max) {
+	@include respond-to($large,max) {
 		padding-right: 0 !important;
 		padding-left: 0 !important;
 		border-right: 0;
 		border-bottom: 1px solid #D7D7E4;
 	}
 
-	@include respond-to($navigation,max) {
+	@include respond-to($large,max) {
 		padding: 0 !important;
 	}
 }
 
 .icon-more {
 
-	@include respond-to($navigation,max) {
+	@include respond-to($large,max) {
 		padding: 0 !important;
 		padding-bottom: 60px !important;
 	}
@@ -55,7 +55,7 @@
 
 .menu-link a::after,
 .menu-item a::after {
-	@include respond-to($navigation,min) {
+	@include respond-to($large,min) {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -68,7 +68,7 @@
 }
 
 .depth-1::after {
-	@include respond-to($navigation,min) {
+	@include respond-to($large,min) {
 		bottom: 8px !important;
 	}
 }
@@ -81,7 +81,7 @@
 .menu-item a {
 	display: inline-block !important;
 
-	@include respond-to($navigation,max) {
+	@include respond-to($large,max) {
 		display: block !important;
 	}
 }
@@ -89,7 +89,7 @@
 .mega-menu {
 	max-width: 558px !important;
 
-	@include respond-to($navigation,max) {
+	@include respond-to($large,max) {
 		max-width: 100% !important;
 	}
 }
