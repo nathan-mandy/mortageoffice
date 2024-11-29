@@ -55,18 +55,22 @@
 
 .menu-link a::after,
 .menu-item a::after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 1px;
-	background-color: var(--wp--preset--color--black);
-	content: '';
-	transition: width 0.3s ease;
+	@include respond-to($navigation,min) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background-color: var(--wp--preset--color--black);
+		content: '';
+		transition: width 0.3s ease;
+	}
 }
 
 .depth-1::after {
-	bottom: 8px !important;
+	@include respond-to($navigation,min) {
+		bottom: 8px !important;
+	}
 }
 
 .menu-link a:hover::after,
@@ -76,6 +80,10 @@
 
 .menu-item a {
 	display: inline-block !important;
+
+	@include respond-to($navigation,max) {
+		display: block !important;
+	}
 }
 
 .mega-menu {
