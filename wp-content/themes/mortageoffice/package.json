@@ -21,6 +21,7 @@
 		"postcss-pxtorem": "^6.1.0",
 		"postcss-sort-media-queries": "^5.2.0",
 		"postcss-unique-selectors": "^7.0.1",
+		"sass": "^1.81.0",
 		"standard": "^17.1.0",
 		"stylelint-order": "^6.0.4",
 		"stylelint-webpack-plugin": "^5.0.1"
