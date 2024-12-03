@@ -15,7 +15,7 @@
 		overflow: scroll;
 		background-color: #FFFFFF !important;
 	}
-	@include respond-to($large,min) {
+	@include respond-to($large+1px,min) {
 		transform: translateX(-25%) !important;
 	}
 }
@@ -116,14 +116,14 @@
 	> .menu-item {
 		position: relative;
 
-		@include respond-to($large,max) {
+		@include respond-to($large + 1px,max) {
 			position: unset;
 			width: 100%;
 		}
 
 		> .menu-item-link {
 			&::before {
-				@include respond-to($large,min) {
+				@include respond-to($large+1px,min) {
 					position: absolute;
 					bottom: -5px;
 					left: 0;
@@ -209,7 +209,7 @@
 
 	&::after {
 
-		@include respond-to($large,min) {
+		@include respond-to($large + 1px,min) {
 			position: absolute;
 			top: 25px !important;
 			left: 4px !important;
@@ -276,11 +276,6 @@
 	}
 }
 
-// .nav-open .header .menus {
-// 	clip-path: inset(0 0 0 0);
-// 	pointer-events: all;
-// }
-
 .hide-on-desktop:not(.block-editor-block-list__block) {
 	@include respond-to($navigation,min) {
 		position: relative !important;
@@ -290,19 +285,13 @@
 		clip: rect(1px,1px,1px,1px);
 		white-space: nowrap;
 	}
-	@include respond-to($large,min) {
+	@include respond-to($large+1px,min) {
 		display: none !important;
 	}
 }
 
-// .menu.main-menu .menu-item.menu-item-has-meganav>.sub-menu {
-// 	@include respond-to($navigation,min) {
-// 		display: block !important;
-// 	}
-// }
-
 .menu.main-menu .menu-item-link {
-	@include respond-to($navigation,1023px) {
+	@include respond-to($navigation,1024px) {
 		position: relative !important;
 		padding: 6px 24px !important;
 	}

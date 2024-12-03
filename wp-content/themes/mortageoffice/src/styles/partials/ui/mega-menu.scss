@@ -97,7 +97,7 @@
 }
 
 .menu.main-menu .sub-menu {
-	@include respond-to($large,max) {
+	@include respond-to($large+1px,max) {
 		position: absolute !important;
 		height: var(--nav-height) !important;
 		transform: translateX(100%);
@@ -106,7 +106,7 @@
 }
 
 .menu.main-menu .sub-menu.active {
-	@include respond-to($large,max) {
+	@include respond-to($large+1px,max) {
 		display: block !important;
 		transform: translateX(0) !important;
 	}
