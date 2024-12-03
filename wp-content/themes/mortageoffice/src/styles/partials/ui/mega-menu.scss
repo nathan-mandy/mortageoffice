@@ -95,3 +95,19 @@
 		max-width: 100% !important;
 	}
 }
+
+.menu.main-menu .sub-menu {
+	@include respond-to($large,max) {
+		position: absolute !important;
+		height: var(--nav-height) !important;
+		transform: translateX(100%);
+		transition: transform 0.3s ease-out !important;
+	}
+}
+
+.menu.main-menu .sub-menu.active {
+	@include respond-to($large,max) {
+		display: block !important;
+		transform: translateX(0) !important;
+	}
+}

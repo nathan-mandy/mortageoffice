@@ -24,6 +24,7 @@
 
 	@include respond-to($large,max) {
 		left: auto !important;
+		background: none !important;
 	}
 }
 
@@ -82,13 +83,26 @@
 .utility-footer {
 	display: flex;
 	align-items: baseline;
+	justify-content: space-between;
 	max-width: var(--wp--custom--container-width--xwide);
 	margin: 0 auto;
 	border-top: 1px solid #D7D7E4;
+
+	@include respond-to($xlarge,max) {
+		padding: 0 24px ;
+	}
+
+	@include respond-to($navigation,max) {
+		flex-direction: column;
+		gap: 0;
+		margin-top: 80px;
+	}
 }
 
 .footer-terms {
 	gap: 0 !important;
+	display: grid;
+	grid-auto-flow: column;
 
 	.menu-item {
 		font-size: 14px;
@@ -110,5 +124,49 @@
 		&::after {
 			content: none;
 		}
+	}
+}
+
+.icon {
+	width: 16px;
+	height: 16px;
+}
+
+.icon-twitter {
+	background-image: url('../src/images/twitter.png') ;
+	background-repeat: no-repeat;
+}
+
+.icon-facebook {
+	background-image: url('../src/images/facebook.png') ;
+	background-repeat: no-repeat;
+}
+
+.icon-instagram {
+	background-image: url('../src/images/Instagram.png') ;
+	background-repeat: no-repeat;
+}
+
+.icon-linkedin {
+	background-image: url('../src/images/Linkedin.png') ;
+	background-repeat: no-repeat;
+}
+
+.privacy-menu {
+	display: flex;
+	align-items: baseline;
+
+	@include respond-to($navigation,max) {
+		flex-direction: column;
+	}
+}
+
+.social-links {
+	gap: 12px;
+	display: flex;
+	align-items: baseline;
+
+	@include respond-to($navigation,max) {
+		margin: 0 0 10px;
 	}
 }
