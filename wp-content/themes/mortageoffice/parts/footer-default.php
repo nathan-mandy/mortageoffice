@@ -35,18 +35,16 @@ if ($copyright) {
 	$args['copyright_text'] = str_replace('{year}', gmdate('Y'), $copyright);
 }
 
+if (function_exists('cher_profile_urls')) {
+	$social_links = cher_profile_urls();
+	$args['cher_profile_urls'] = '<ul class="social-links">';
+	foreach ($social_links as $id => $link) {
+		if ($link) {
+			$args['cher_profile_urls'] .= '<li class="item icon icon-' . $id . '" ><a class="link" href=' . $link . ' target="_blank"><span class="screen-reader-text">Mortage-Office ' . $id . ' Page (opens a new window)</span></a></li>';
+		}
+	}
 
-$social_media = \get_option('options_social_links');
-
-if ($social_media) {
-	$socials = \get_the_content(false, null, $social_media);
-
-	$parsed_social_links_blocks = parse_blocks($socials);
-
-	$social_links = array_map(function ($block) {
-		return apply_filters('the_content', render_block($block));
-	}, $parsed_social_links_blocks);
-	$args['social_links'] = implode('', $social_links);
+	$args['cher_profile_urls'] .= '</ul>';
 }
 
 // Render mustache template
