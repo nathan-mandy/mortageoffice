@@ -1,0 +1,80 @@
+/* stylelint-disable  declaration-no-important */
+
+.footer-menu {
+	gap: 0;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+
+	@include respond-to($navigation,max) {
+		gap: 20px;
+		grid-template-columns: 30% 30% 30%;
+	}
+	@include respond-to($small,max) {
+		gap: 20px;
+		grid-template-columns: 50% 50%;
+	}
+
+}
+
+.footer-nav .menu-item .sub-menu {
+	top: auto !important;
+	display: block !important;
+	width: auto !important;
+	transform: none !important;
+
+	@include respond-to($large,max) {
+		left: auto !important;
+	}
+}
+
+.footer-content {
+	background-color: #FFFFFF !important;
+	@include respond-to($large,max) {
+		padding: 0 24px !important;
+	}
+}
+
+.career-li {
+	@include respond-to($small,max) {
+		margin-top: 60px !important;
+	}
+}
+
+.menu.footer-menu .menu-item:nth-child(2) {
+	@include respond-to($small,max) {
+		grid-column: 1;
+		grid-row: 2;
+	}
+}
+
+.menu.footer-menu .menu-item:nth-child(3) {
+	@include respond-to($small,max) {
+		grid-column: 2;
+		grid-row: 2;
+	}
+}
+
+.menu.footer-menu .menu-item:nth-child(4) {
+	@include respond-to($small,max) {
+		grid-column: 1;
+	}
+}
+
+.footer-menu {
+	.menu-item {
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 0.10000000149011612px;
+		line-height: 24px;
+	}
+
+	.sub-menu {
+		.menu-item {
+			margin-bottom: 18px;
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: normal;
+			line-height: 16px;
+		}
+	}
+}

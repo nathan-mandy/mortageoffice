@@ -330,25 +330,3 @@
 		align-self: center;
 	}
 }
-
-.footer-nav .menu-item .sub-menu {
-	top: auto !important;
-	display: block !important;
-	width: auto !important;
-	transform: none !important;
-
-	@include respond-to($large,max) {
-		left: auto !important;
-		// padding: 0 24px !important;
-	}
-}
-
-.footer-content {
-	background-color: #FFFFFF !important;
-}
-
-.career-li {
-	@include respond-to($navigation,max) {
-		margin-top: 40px !important;
-	}
-}
