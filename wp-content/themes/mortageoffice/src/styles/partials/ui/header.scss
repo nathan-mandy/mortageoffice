@@ -1,3 +1,4 @@
+/* stylelint-disable  declaration-no-important */
 
 :root {
 	--admin-bar-height: 0;
@@ -69,43 +70,104 @@
 	@include respond-to($large) {
 		display: none;
 	}
-
-	.hamburger {
-		position: relative;
-
-		.top-bun {
-			transform: translate(0, -7.5px) rotate(0);
-		}
-
-		.bottom-bun {
-			transform: translate(0, 7.5px) rotate(0);
-		}
-	}
-
-	line {
-		transform-origin: center;
-		transition: all 0.25s ease-out;
-		stroke-width: 2px;
-		stroke: currentColor;
-		will-change: opacity, transform;
-	}
-
-	.nav-open & {
-		.top-bun {
-			transform: translate(0, 0) rotate(135deg);
-		}
-
-		.burger {
-			opacity: 0;
-		}
-
-		.bottom-bun {
-			transform: translate(0, 0) rotate(-135deg);
-		}
-
-	}
 }
 
 .menu.main-menu .menu-item-link.depth-0::after {
 	content: none ;
+}
+
+.header-search {
+	flex-direction: row-reverse;
+	gap: 45px;
+	align-items: center;
+	justify-content: end;
+
+	@include respond-to($xlarge+2px,max) {
+		margin-right: 30px;
+	}
+	@include respond-to($large,max) {
+		flex-direction: column-reverse;
+		align-items: unset;
+		width: 100%;
+		margin-right: 0;
+		padding: 0 0 0 24px;
+	}
+
+	.utility-menu {
+		display: block;
+	}
+
+	.utility-menu-wrapper {
+		width: auto;
+	}
+
+	.search-toggle {
+		top: 45%;
+		right: auto;
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 20px;
+		gap: 6px;
+
+		&::before {
+			font-size: 12px;
+		}
+	}
+
+	.search-form-wrapper {
+		@include respond-to($navigation,max) {
+			width: 0 ;
+			overflow: hidden;
+		}
+
+		input {
+			height: 30px;
+			border: 1px solid #C558FF;
+			border-radius: 4px;
+		}
+	}
+}
+
+.header-search.activated {
+	gap: 15px;
+	@include respond-to($large,max) {
+		gap: 0;
+	}
+
+	.search-toggle {
+		gap: 20px;
+		top: 50%;
+		@include respond-to($large,max) {
+			top: 76%;
+			right: 10%;
+			gap: 10px;
+		}
+		@include respond-to($medium,max) {
+			top: 76%;
+			right: 24%;
+			gap: 10px;
+		}
+		@include respond-to($small,max) {
+			top: 76%;
+			right: 18%;
+			gap: 10px;
+		}
+	}
+
+	.search-form-wrapper {
+		@include respond-to($large,max) {
+			width: 85%;
+			max-width: 90%;
+		}
+		@include respond-to($medium,max) {
+			width: 70%;
+			max-width: 90%;
+		}
+	}
+
+	.search-submit {
+		display: none;
+	}
 }
