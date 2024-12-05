@@ -95,6 +95,40 @@
 
 	.utility-menu {
 		display: block;
+
+		@include respond-to($large,max) {
+			margin-left: 24px;
+		}
+
+		.menu-item-link {
+			position: relative;
+			letter-spacing: normal;
+			line-height: 20px;
+
+			&::before {
+				position: absolute;
+				top: 4px ;
+				left: -28px;
+				width: 16px ;
+				height: 16px ;
+				margin: 0 0 3px 6px ;
+				transform: none ;
+				background-image: url('../src/images/login-logo.png') ;
+				background-repeat: no-repeat ;
+				content: '' ;
+
+				@include respond-to($large,max) {
+					top: 2px;
+					background-image: url('../src/images/login-logo-small.png') ;
+					background-repeat: no-repeat ;
+				}
+			}
+			@include respond-to($large,max) {
+				font-size: 11.98px;
+				font-weight: 500;
+				line-height: 17.12px;
+			}
+		}
 	}
 
 	.utility-menu-wrapper {
@@ -106,6 +140,7 @@
 		right: auto;
 		display: flex;
 		align-items: center;
+		color: #414148;
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 20px;
@@ -113,6 +148,12 @@
 
 		&::before {
 			font-size: 12px;
+		}
+
+		@include respond-to($large,max) {
+			font-size: 11.98px;
+			font-weight: 500;
+			line-height: 17.12px;
 		}
 	}
 
@@ -160,6 +201,7 @@
 		@include respond-to($large,max) {
 			width: 85%;
 			max-width: 90%;
+			margin-top: 10px;
 		}
 		@include respond-to($medium,max) {
 			width: 70%;

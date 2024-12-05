@@ -1,10 +1,13 @@
 /* stylelint-disable  declaration-no-important */
 
 .footer-menu {
-	gap: 0;
+	gap: 12px;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
 
+	@include respond-to($xxlarge,max) {
+		gap: 0;
+	}
 	@include respond-to($navigation,max) {
 		gap: 20px;
 		grid-template-columns: 30% 30% 30%;
@@ -14,12 +17,16 @@
 		grid-template-columns: 50% 50%;
 	}
 
+	.menu-item a::after {
+		display: none;
+	}
 }
 
 .footer-nav .menu-item .sub-menu {
 	top: auto !important;
 	display: block !important;
 	width: auto !important;
+	margin-bottom: 0;
 	transform: none !important;
 
 	@include respond-to($large,max) {
@@ -46,6 +53,20 @@
 		grid-column: 1;
 		grid-row: 2;
 	}
+
+	.sub-menu {
+		.menu-item:nth-child(1) a,
+		.menu-item:nth-child(2) a {
+			font-size: 16px;
+			font-weight: 700;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 24px;
+		}
+
+		.menu-item:nth-child(1) {
+			margin-top: 16px;
+		}
+	}
 }
 
 .menu.footer-menu .menu-item:nth-child(3) {
@@ -53,11 +74,23 @@
 		grid-column: 2;
 		grid-row: 2;
 	}
+
+	.sub-menu {
+		.menu-item:nth-child(1) {
+			margin-top: 16px;
+		}
+	}
 }
 
 .menu.footer-menu .menu-item:nth-child(4) {
 	@include respond-to($small,max) {
 		grid-column: 1;
+	}
+
+	.sub-menu {
+		.menu-item:nth-child(1) {
+			margin-top: 16px;
+		}
 	}
 }
 
@@ -130,6 +163,14 @@
 .icon {
 	width: 16px;
 	height: 16px;
+	padding: 0;
+	cursor: pointer;
+
+	a {
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
 }
 
 .icon-twitter {
@@ -165,8 +206,16 @@
 	gap: 12px;
 	display: flex;
 	align-items: baseline;
-
+	margin: 0;
 	@include respond-to($navigation,max) {
 		margin: 0 0 10px;
+	}
+}
+
+.footer-copyright {
+	margin: 0;
+
+	@include respond-to($navigation,max) {
+		margin: 10px 0;
 	}
 }

@@ -1,6 +1,9 @@
 <?php
 
 use Vital\VitalMustache;
+$args = [
+	'home_link' => home_link(),
+];
 
 // Fetch Main Menu
 if (has_nav_menu('footer_nav')) {

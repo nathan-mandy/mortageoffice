@@ -3,8 +3,11 @@
 .icons {
 	grid-template-columns: 10% !important;
 
+	@include respond-to($large,max) {
+		grid-template-columns: 6% !important;
+	}
 	@include respond-to(500px,max) {
-		grid-template-columns: 15% !important;
+		grid-template-columns: 10% !important;
 	}
 
 	.wp-block-media-text__media {
