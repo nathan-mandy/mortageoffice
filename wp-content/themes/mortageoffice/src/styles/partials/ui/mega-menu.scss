@@ -87,8 +87,7 @@
 
 	@include respond-to($large,max) {
 		display: block !important;
-		padding-right: 0 !important;
-		padding-left: 0 !important;
+		padding: 0 !important;
 	}
 }
 
@@ -113,5 +112,8 @@
 	@include respond-to($large+1px,max) {
 		display: block !important;
 		transform: translateX(0) !important;
+	}
+	@include respond-to($navigation,max) {
+		padding: 0 24px !important;
 	}
 }

@@ -42,6 +42,10 @@
 				clip-path: inset(0 0 0 0);
 				pointer-events: all;
 			}
+
+			@include respond-to($large,max) {
+				gap: 0;
+			}
 		}
 	}
 
@@ -79,29 +83,33 @@
 .header-search {
 	flex-direction: row-reverse;
 	gap: 45px;
-	align-items: center;
+	align-items: baseline;
 	justify-content: end;
 
 	@include respond-to($xlarge+2px,max) {
 		margin-right: 30px;
 	}
 	@include respond-to($large,max) {
-		flex-direction: column-reverse;
+		flex-direction: column;
 		align-items: unset;
 		width: 100%;
+		margin-top: 4px;
 		margin-right: 0;
-		padding: 0 0 0 24px;
+		padding: 0 24px;
+		gap: 24px;
 	}
 
 	.utility-menu {
 		display: block;
 
 		@include respond-to($large,max) {
+			margin-top: 20px;
 			margin-left: 24px;
 		}
 
 		.menu-item-link {
 			position: relative;
+			margin-right: 40px;
 			letter-spacing: normal;
 			line-height: 20px;
 
@@ -133,6 +141,9 @@
 
 	.utility-menu-wrapper {
 		width: auto;
+		@include respond-to($large,max) {
+			border-top: 1px solid #D7D7E4;
+		}
 	}
 
 	.search-toggle {
@@ -151,6 +162,9 @@
 		}
 
 		@include respond-to($large,max) {
+			top: 50%;
+			margin-top: 18px;
+			margin-left: -21px;
 			font-size: 11.98px;
 			font-weight: 500;
 			line-height: 17.12px;
@@ -169,29 +183,33 @@
 			border-radius: 4px;
 		}
 	}
+
+	.form-button {
+		list-style: none;
+	}
 }
 
 .header-search.activated {
 	gap: 15px;
 	@include respond-to($large,max) {
-		gap: 0;
+		gap: 20px;
 	}
 
 	.search-toggle {
 		gap: 20px;
 		top: 50%;
 		@include respond-to($large,max) {
-			top: 76%;
+			top: 40%;
 			right: 10%;
 			gap: 10px;
 		}
 		@include respond-to($medium,max) {
-			top: 76%;
+			top: 40%;
 			right: 24%;
 			gap: 10px;
 		}
 		@include respond-to($small,max) {
-			top: 76%;
+			top: 40%;
 			right: 18%;
 			gap: 10px;
 		}
@@ -202,6 +220,7 @@
 			width: 85%;
 			max-width: 90%;
 			margin-top: 10px;
+			margin-left: -21px;
 		}
 		@include respond-to($medium,max) {
 			width: 70%;
