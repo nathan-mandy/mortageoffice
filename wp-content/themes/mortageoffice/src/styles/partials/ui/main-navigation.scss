@@ -209,8 +209,11 @@
 .main-menu {
 	gap: 32px;
 
-	@include respond-to($xlarge,max) {
+	@include respond-to(1250px,max) {
 		gap: 24px;
+	}
+	@include respond-to(1100px,max) {
+		gap: 15px;
 	}
 	@include respond-to($large,max) {
 		flex-direction: column;
@@ -237,15 +240,18 @@
 }
 
 .menu .sub-menu-toggle {
-	position: relative;
-	top: auto;
 	right: 0 !important;
 	display: block;
-	width: 22px;
-	height: auto;
-	margin-top: initial;
-	padding: 0;
 	cursor: pointer;
+
+	@include respond-to($large+1px,min) {
+		position: relative;
+		top: auto;
+		width: 22px;
+		height: auto;
+		margin-top: initial;
+		padding: 0;
+	}
 
 	@include respond-to($large+1px,max) {
 		transform: rotate(0deg)!important;
@@ -368,4 +374,8 @@
 			}
 		}
 	}
+}
+
+.menu.main-menu>.menu-item-has-children:not(.menu-item-has-meganav) .menu-item-link:not(.depth-0) {
+	display: inline-block !important;
 }

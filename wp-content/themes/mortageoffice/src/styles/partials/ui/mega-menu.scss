@@ -34,6 +34,10 @@
 	@include respond-to($large,max) {
 		padding: 0 !important;
 	}
+
+	p {
+		display: inline-block;
+	}
 }
 
 .icon-more {
@@ -42,6 +46,11 @@
 		padding: 0 !important;
 		padding-bottom: 60px !important;
 	}
+
+	p {
+		display: inline-block;
+	}
+
 }
 
 .menu-link a,
