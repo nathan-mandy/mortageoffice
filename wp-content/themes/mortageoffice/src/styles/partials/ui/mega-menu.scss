@@ -82,7 +82,7 @@
 }
 
 .menu-item a {
-	display: inline-block !important;
+	display: flex !important;
 	min-width: 0 !important;
 
 	@include respond-to($large,max) {
