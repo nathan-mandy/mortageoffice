@@ -9,7 +9,6 @@
 		gap: 0;
 	}
 	@include respond-to($navigation,max) {
-		//gap: 20px;
 		grid-template-columns: 30% 30% 30%;
 	}
 	@include respond-to($small,max) {
@@ -112,6 +111,27 @@
 			line-height: 16px;
 		}
 	}
+
+	.menu-link a,
+	.menu-item a {
+		position: relative;
+		display: block !important;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline !important;
+		}
+	}
+
+	.form-button {
+		a {
+			&:hover {
+				text-decoration: none !important;
+			}
+
+		}
+	}
+
 }
 
 .utility-footer {
@@ -147,14 +167,21 @@
 		font-weight: 500;
 		letter-spacing: normal;
 		line-height: 24px;
+
 	}
 
 	.menu-item a {
+		display: inline-block !important ;
+
 		&::after {
 			position: relative;
 			margin: 0 3px;
 			background: none;
 			content: '|';
+		}
+
+		&:hover {
+			text-decoration: underline !important;
 		}
 	}
 

@@ -36,7 +36,10 @@
 	}
 
 	p {
-		display: inline-block;
+		@include respond-to($large,min) {
+			display: inline-block;
+		}
+
 	}
 }
 
@@ -48,7 +51,10 @@
 	}
 
 	p {
-		display: inline-block;
+		@include respond-to($large,min) {
+			display: inline-block;
+		}
+
 	}
 
 }

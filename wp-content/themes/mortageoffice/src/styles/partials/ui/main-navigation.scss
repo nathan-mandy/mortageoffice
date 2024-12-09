@@ -97,7 +97,7 @@
 	cursor: pointer;
 
 	&::before {
-		top: 4px !important;
+		top: 14px !important;
 		left: 0 !important;
 		width: 16px !important;
 		height: 16px !important;
@@ -111,7 +111,7 @@
 			margin-left: -4px !important;
 		}
 		@include respond-to($navigation,max) {
-			top: 4px !important;
+			top: 9px !important;
 			margin-left: -5px !important;
 		}
 		@include respond-to(780px,max) {
