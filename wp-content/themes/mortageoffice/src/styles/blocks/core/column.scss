@@ -5,3 +5,14 @@
 .no-gap {
 	gap: 0;
 }
+
+.stats-bar {
+	@extend h1;
+	color: var(--wp--preset--color--egyptian-blue);
+}
+
+.wp-block-columns.dividers .wp-block-column+.wp-block-column::before {
+	@include respond-to($navigation,min) {
+		top: 0;
+	}
+}
