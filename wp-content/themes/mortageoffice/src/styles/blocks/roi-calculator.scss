@@ -1,0 +1,28 @@
+.roi-calculator-container {
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	background: #f9f9f9;
+}
+
+.roi-slider {
+	margin-bottom: 15px;
+}
+
+.roi-slider label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.roi-slider input[type='range'] {
+	width: 100%;
+	cursor: pointer;
+}
+
+.roi-slider span {
+	display: inline-block;
+	margin-top: 5px;
+	color: #555;
+	font-size: 14px;
+}
