@@ -1,8 +1,8 @@
 .roi-calculator-container {
-	margin-bottom: 20px;
-	padding: 20px;
-	border: 1px solid #ddd;
-	background: #f9f9f9;
+	padding: 32px;
+	border: 1px solid #D7D7E4;
+	border-radius: 24px;
+	background: #ffffff;
 }
 
 .roi-slider {
@@ -23,6 +23,54 @@
 .roi-slider span {
 	display: inline-block;
 	margin-top: 5px;
-	color: #555;
-	font-size: 14px;
+	font-size: 26px;
+}
+
+.non-performing-value,
+.roi-value {
+	height: 50px;
+	padding: 5px 12px;
+	border-radius: 6px;
+	background: #EAEFF4;
+	color: #0B0B33;
+	font-size: 32px;
+	font-weight: 700;
+	letter-spacing: -0.4000000059604645px;
+	line-height: 38.4px;
+}
+
+.calculator-p {
+	display: flex;
+	flex-direction: column;
+}
+
+input[type=range] {
+	width: 100%;
+	height: 34px;
+	-webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 11px;
+	border: 0 solid #010101;
+	border-radius: 5px;
+	background: var(--wp--custom--colors--button-bg);
+	cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	width: 24px;
+	height: 24px;
+	border-radius: 15px;
+	background: var(--wp--custom--colors--button-bg);
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+.percentage-value {
+	color: #0B0B33;
+	font-weight: 700;
+	letter-spacing: -0.4000000059604645px;
+	line-height: 31.2px;
 }

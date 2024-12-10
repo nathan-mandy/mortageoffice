@@ -57,10 +57,11 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             />
                         </PanelBody>
                     </InspectorControls>
-                    <div><label>Select number of lorem ipsum dolor set undarspice</label></div>
+                    <div><label class="has-large-font-size">Select number of lorem ipsum dolor set undarspice</label></div>
                     <div className="roi-calculator-container">
                         <div className="roi-slider">
                             <label htmlFor="investment">Investment:</label>
+                            <span class="percentage-value">${investment}</span>
                             <input
                                 type="range"
                                 id="investment"
@@ -69,10 +70,10 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                 value={investment}
                                 onChange={(e) => setAttributes({ investment: parseFloat(e.target.value) })}
                             />
-                            <span>${investment}</span>
                         </div>
                         <div className="roi-slider">
                             <label htmlFor="return-percentage">Return Percentage:</label>
+                            <span class="percentage-value">{returnPercentage}%</span>
                             <input
                                 type="range"
                                 id="return-percentage"
@@ -83,10 +84,10 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                     setAttributes({ returnPercentage: parseFloat(e.target.value) })
                                 }
                             />
-                            <span>{returnPercentage}%</span>
                         </div>
                         <div className="roi-slider">
                             <label htmlFor="non-perfoming">Non-Performing Percentage:</label>
+                            <span class="percentage-value">{performing}%</span>
                             <input
                                 type="range"
                                 id="non-perfoming"
@@ -97,12 +98,11 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                     setAttributes({ performing: parseFloat(e.target.value) })
                                 }
                             />
-                            <span>{performing}%</span>
                         </div>
-                        <p>
+                        <p class="calculator-p">
                             ROI: <strong>${calculateROI().toFixed(2)}</strong>
                         </p>
-                        <p>
+                        <p class="calculator-p">
                             Non-Performing: <strong>${calculatePerforming().toFixed(2)}</strong>
                         </p>
                     </div>
@@ -120,9 +120,10 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                     data-return={returnPercentage}
                     data-performing={performing}
                 >
-                     <div><label>Select number of lorem ipsum dolor set undarspice</label></div>
+                     <div><label class="has-large-font-size">Select number of lorem ipsum dolor set undarspice</label></div>
                     <div className="roi-slider">
                         <label htmlFor="investment">Investment:</label>
+                        <span id="investment-value" class="percentage-value">${investment}</span>
                         <input
                             type="range"
                             id="investment"
@@ -132,10 +133,10 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             defaultValue={investment}
                             data-role="investment"
                         />
-                        <span id="investment-value">${investment}</span>
                     </div>
                     <div className="roi-slider">
                         <label htmlFor="return-percentage">Return Percentage:</label>
+                        <span id="return-value" class="percentage-value">{returnPercentage}%</span>
                         <input
                             type="range"
                             id="return-percentage"
@@ -145,10 +146,10 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             defaultValue={returnPercentage}
                             data-role="return"
                         />
-                        <span id="return-value">{returnPercentage}%</span>
                     </div>
                     <div className="roi-slider">
                         <label htmlFor="non-perfoming">Non-Performing Percentage:</label>
+                        <span id="performing-value" class="percentage-value">{performing}%</span>
                         <input
                             type="range"
                             id="non-perfoming"
@@ -158,13 +159,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             defaultValue={performing}
                             data-role="performing"
                         />
-                        <span id="performing-value">{performing}%</span>
                     </div>
-                    <p>
-                        ROI: <span id="roi-value">0</span>
+                    <p class="calculator-p">
+                        ROI: <span id="roi-value" class="roi-value">0</span>
                     </p>
-                    <p>
-                        Non-Performing: <span id="non-performing-value">0</span>
+                    <p class="calculator-p">
+                        Non-Performing: <span id="non-performing-value" class="non-performing-value">0</span>
                     </p>
                 </div>
             );
