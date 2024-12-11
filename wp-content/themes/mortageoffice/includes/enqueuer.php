@@ -51,7 +51,7 @@ class Enqueuer {
 		 */
 		wp_enqueue_style(
 			'google_fonts',
-			'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Libre+Franklin:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap',
+			'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap',
 			[],
 			null
 		);
