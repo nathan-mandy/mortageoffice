@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "image-center",
+	"title": "Image-Center",
+	"blockTypes": [
+		"core/image"
+	],
+	"styles": {
+		"typography": {}
+	}
+}

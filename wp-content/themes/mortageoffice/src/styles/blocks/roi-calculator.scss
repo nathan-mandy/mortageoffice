@@ -59,11 +59,9 @@ input[type='range'] {
 	height: 8px;
 	outline: none;
 	border-radius: 5px;
-	background: #EAEFF4;  /* Default track color */
-	-webkit-appearance: none;  /* Remove default WebKit styles */
+	background: #EAEFF4;
+	-webkit-appearance: none;
 }
-
-/* WebKit browsers (Chrome, Safari) */
 
 input[type='range']::-webkit-slider-runnable-track {
 	height: 8px;
@@ -79,26 +77,18 @@ input[type='range']::-moz-range-track {
 	background: #EAEFF4;  /* Default track color */
 }
 
-/* Custom track color using a CSS variable */
-
 input[type='range'] {
 	--track-progress: 0%;
 	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
 }
 
-/* WebKit browsers - update range track using the variable */
-
 input[type='range']::-webkit-slider-runnable-track {
 	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
 }
 
-/* Firefox - update range track using the variable */
-
 input[type='range']::-moz-range-track {
 	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
 }
-
-/* Range thumb styles */
 
 input[type='range']::-webkit-slider-thumb {
 	width: 20px;
