@@ -30,6 +30,17 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                 return (investment * returnPercentage * performing) / 100;
             };
 
+            // Function to set custom range track color (for Backend - Editor)
+            const setRangeTrackColor = (input) => {
+                const min = input.min || 0;
+                const max = input.max || 100;
+                const val = input.value;
+                const percentage = ((val - min) / (max - min)) * 100;
+
+                // Apply dynamic background to the track of the range input
+                input.style.setProperty('--track-progress', `${percentage}%`);
+            };
+
             return (
                 <div>
                     <InspectorControls>
@@ -57,11 +68,11 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             />
                         </PanelBody>
                     </InspectorControls>
-                    <div><label class="has-large-font-size">Select number of lorem ipsum dolor set undarspice</label></div>
+
                     <div className="roi-calculator-container">
                         <div className="roi-slider">
                             <label htmlFor="investment">Investment:</label>
-                            <span class="percentage-value">${investment}</span>
+                            <span className="percentage-value">${investment}</span>
                             <input
                                 type="range"
                                 id="investment"
@@ -69,11 +80,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                 max="10000"
                                 value={investment}
                                 onChange={(e) => setAttributes({ investment: parseFloat(e.target.value) })}
+                                onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                             />
                         </div>
                         <div className="roi-slider">
                             <label htmlFor="return-percentage">Return Percentage:</label>
-                            <span class="percentage-value">{returnPercentage}%</span>
+                            <span className="percentage-value">{returnPercentage}%</span>
                             <input
                                 type="range"
                                 id="return-percentage"
@@ -83,11 +95,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                 onChange={(e) =>
                                     setAttributes({ returnPercentage: parseFloat(e.target.value) })
                                 }
+                                onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                             />
                         </div>
                         <div className="roi-slider">
                             <label htmlFor="non-perfoming">Non-Performing Percentage:</label>
-                            <span class="percentage-value">{performing}%</span>
+                            <span className="percentage-value">{performing}%</span>
                             <input
                                 type="range"
                                 id="non-perfoming"
@@ -97,12 +110,13 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                                 onChange={(e) =>
                                     setAttributes({ performing: parseFloat(e.target.value) })
                                 }
+                                onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                             />
                         </div>
-                        <p class="calculator-p">
+                        <p className="calculator-p">
                             ROI: <strong>${calculateROI().toFixed(2)}</strong>
                         </p>
-                        <p class="calculator-p">
+                        <p className="calculator-p">
                             Non-Performing: <strong>${calculatePerforming().toFixed(2)}</strong>
                         </p>
                     </div>
@@ -120,10 +134,9 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                     data-return={returnPercentage}
                     data-performing={performing}
                 >
-                     <div><label class="has-large-font-size">Select number of lorem ipsum dolor set undarspice</label></div>
                     <div className="roi-slider">
                         <label htmlFor="investment">Investment:</label>
-                        <span id="investment-value" class="percentage-value">${investment}</span>
+                        <span id="investment-value" className="percentage-value">${investment}</span>
                         <input
                             type="range"
                             id="investment"
@@ -132,11 +145,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             step="100"
                             defaultValue={investment}
                             data-role="investment"
+                            onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                         />
                     </div>
                     <div className="roi-slider">
                         <label htmlFor="return-percentage">Return Percentage:</label>
-                        <span id="return-value" class="percentage-value">{returnPercentage}%</span>
+                        <span id="return-value" className="percentage-value">{returnPercentage}%</span>
                         <input
                             type="range"
                             id="return-percentage"
@@ -145,11 +159,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             step="1"
                             defaultValue={returnPercentage}
                             data-role="return"
+                            onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                         />
                     </div>
                     <div className="roi-slider">
                         <label htmlFor="non-perfoming">Non-Performing Percentage:</label>
-                        <span id="performing-value" class="percentage-value">{performing}%</span>
+                        <span id="performing-value" className="percentage-value">{performing}%</span>
                         <input
                             type="range"
                             id="non-perfoming"
@@ -158,74 +173,93 @@ import { PanelBody, RangeControl } from '@wordpress/components';
                             step="1"
                             defaultValue={performing}
                             data-role="performing"
+                            onInput={(e) => setRangeTrackColor(e.target)} // Apply range color dynamically
                         />
                     </div>
-                    <p class="calculator-p">
-                        ROI: <span id="roi-value" class="roi-value">0</span>
+                    <p className="calculator-p">
+                        ROI: <span id="roi-value" className="roi-value">0</span>
                     </p>
-                    <p class="calculator-p">
-                        Non-Performing: <span id="non-performing-value" class="non-performing-value">0</span>
+                    <p className="calculator-p">
+                        Non-Performing: <span id="non-performing-value" className="non-performing-value">0</span>
                     </p>
                 </div>
             );
         },
     });
 
-    /**
-     * Frontend: Dynamic ROI Calculation
-     */
-    document.addEventListener('DOMContentLoaded', () => {
-        const containers = document.querySelectorAll('.roi-calculator-container');
-
-        containers.forEach((container) => {
-            const investmentInput = container.querySelector('[data-role="investment"]');
-            const returnInput = container.querySelector('[data-role="return"]');
-            const performingInput = container.querySelector('[data-role="performing"]');
-            
-            const roiValue = container.querySelector('#roi-value');
-            const investmentDisplay = container.querySelector('#investment-value');
-            const returnDisplay = container.querySelector('#return-value');
-            const performingDisplay = container.querySelector('#performing-value');
-            const nonPerformingValueDisplay = container.querySelector('#non-performing-value'); // Non-performing display
-
-            // Calculate ROI
-            const calculateROI = () => {
-                const investment = parseFloat(investmentInput.value);
-                const returnPercentage = parseFloat(returnInput.value);
-                const roi = (investment * returnPercentage) / 100;
-                roiValue.textContent = `$${roi.toFixed(2)}`;
-            };
-
-            // Calculate Non-Performing Value
-            const calculateNonPerforming = () => {
-                const investment = parseFloat(investmentInput.value);
-                const returnPercentage = parseFloat(returnInput.value);
-                const performing = parseFloat(performingInput.value);
-                const nonPerforming = (investment * returnPercentage * performing) / 10000; // Correct calculation
-                nonPerformingValueDisplay.textContent = `$${nonPerforming.toFixed(2)}`;
-            };
-
-            // Event listeners for the input sliders
-            investmentInput.addEventListener('input', () => {
-                investmentDisplay.textContent = `$${investmentInput.value}`;
-                calculateROI();
-                calculateNonPerforming(); // Update non-performing value
+    (function () {
+        /**
+         * Frontend: Dynamic ROI Calculation with Custom Range Track
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const containers = document.querySelectorAll('.roi-calculator-container');
+    
+            containers.forEach((container) => {
+                const investmentInput = container.querySelector('[data-role="investment"]');
+                const returnInput = container.querySelector('[data-role="return"]');
+                const performingInput = container.querySelector('[data-role="performing"]');
+                
+                const roiValue = container.querySelector('#roi-value');
+                const investmentDisplay = container.querySelector('#investment-value');
+                const returnDisplay = container.querySelector('#return-value');
+                const performingDisplay = container.querySelector('#performing-value');
+                const nonPerformingValueDisplay = container.querySelector('#non-performing-value'); // Non-performing display
+    
+                // Function to set custom range track color (for Frontend)
+                const setRangeTrackColor = (input) => {
+                    const min = input.min || 0;
+                    const max = input.max || 100;
+                    const val = input.value;
+                    const percentage = ((val - min) / (max - min)) * 100;
+    
+                    // Apply dynamic background to the track of the range input
+                    input.style.setProperty('--track-progress', `${percentage}%`);
+                };
+    
+                // Calculate ROI
+                const calculateROI = () => {
+                    const investment = parseFloat(investmentInput.value);
+                    const returnPercentage = parseFloat(returnInput.value);
+                    const roi = (investment * returnPercentage) / 100;
+                    roiValue.textContent = `$${roi.toFixed(2)}`;
+                };
+    
+                // Calculate Non-Performing Value
+                const calculateNonPerforming = () => {
+                    const investment = parseFloat(investmentInput.value);
+                    const returnPercentage = parseFloat(returnInput.value);
+                    const performing = parseFloat(performingInput.value);
+                    const nonPerforming = (investment * returnPercentage * performing) / 10000; // Correct calculation
+                    nonPerformingValueDisplay.textContent = `$${nonPerforming.toFixed(2)}`;
+                };
+    
+                // Event listeners for the input sliders
+                const setupRangeInput = (input, display, calcFunction) => {
+                    input.addEventListener('input', () => {
+                        display.textContent = input.dataset.role === "investment" 
+                            ? `$${input.value}` 
+                            : `${input.value}%`;
+                        setRangeTrackColor(input);
+                        calcFunction();
+                    });
+    
+                    // Initialize background and value on page load
+                    setRangeTrackColor(input);
+                    calcFunction();
+                };
+    
+                setupRangeInput(investmentInput, investmentDisplay, () => {
+                    calculateROI();
+                    calculateNonPerforming();
+                });
+    
+                setupRangeInput(returnInput, returnDisplay, () => {
+                    calculateROI();
+                    calculateNonPerforming();
+                });
+    
+                setupRangeInput(performingInput, performingDisplay, calculateNonPerforming);
             });
-
-            returnInput.addEventListener('input', () => {
-                returnDisplay.textContent = `${returnInput.value}%`;
-                calculateROI();
-                calculateNonPerforming(); // Update non-performing value
-            });
-
-            performingInput.addEventListener('input', () => {
-                performingDisplay.textContent = `${performingInput.value}%`;
-                calculateNonPerforming(); // Update non-performing value
-            });
-
-            // Initialize values on page load
-            calculateROI();
-            calculateNonPerforming(); // Initialize non-performing value
         });
-    });
+    })();
 })();

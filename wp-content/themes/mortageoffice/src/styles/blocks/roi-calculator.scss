@@ -20,12 +20,6 @@
 	cursor: pointer;
 }
 
-.roi-slider span {
-	display: inline-block;
-	margin-top: 5px;
-	font-size: 26px;
-}
-
 .non-performing-value,
 .roi-value {
 	height: 50px;
@@ -39,38 +33,86 @@
 	line-height: 38.4px;
 }
 
-.calculator-p {
+.calculator-p,
+.roi-slider label {
 	display: flex;
 	flex-direction: column;
-}
-
-input[type=range] {
-	width: 100%;
-	height: 34px;
-	-webkit-appearance: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-	width: 100%;
-	height: 11px;
-	border: 0 solid #010101;
-	border-radius: 5px;
-	background: var(--wp--custom--colors--button-bg);
-	cursor: pointer;
-}
-
-input[type=range]::-webkit-slider-thumb {
-	width: 24px;
-	height: 24px;
-	border-radius: 15px;
-	background: var(--wp--custom--colors--button-bg);
-	cursor: pointer;
-	-webkit-appearance: none;
+	color: #2A2A2A;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.10000000149011612px;
+	line-height: 28px;
 }
 
 .percentage-value {
 	color: #0B0B33;
+	font-size: 26px;
 	font-weight: 700;
 	letter-spacing: -0.4000000059604645px;
 	line-height: 31.2px;
+
+}
+/* Default range input styles */
+
+input[type='range'] {
+	width: 100%;
+	height: 8px;
+	outline: none;
+	border-radius: 5px;
+	background: #EAEFF4;  /* Default track color */
+	-webkit-appearance: none;  /* Remove default WebKit styles */
+}
+
+/* WebKit browsers (Chrome, Safari) */
+
+input[type='range']::-webkit-slider-runnable-track {
+	height: 8px;
+	border-radius: 5px;
+	background: #EAEFF4;  /* Default track color */
+}
+
+/* Firefox */
+
+input[type='range']::-moz-range-track {
+	height: 8px;
+	border-radius: 5px;
+	background: #EAEFF4;  /* Default track color */
+}
+
+/* Custom track color using a CSS variable */
+
+input[type='range'] {
+	--track-progress: 0%;
+	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
+}
+
+/* WebKit browsers - update range track using the variable */
+
+input[type='range']::-webkit-slider-runnable-track {
+	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
+}
+
+/* Firefox - update range track using the variable */
+
+input[type='range']::-moz-range-track {
+	background: linear-gradient(to right, #46E88C var(--track-progress), #EAEFF4 var(--track-progress));
+}
+
+/* Range thumb styles */
+
+input[type='range']::-webkit-slider-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #46E88C;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+input[type='range']::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #46E88C;
+	cursor: pointer;
 }
