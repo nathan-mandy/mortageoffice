@@ -1,5 +1,5 @@
 {
-	"name": "starcompliance",
+	"name": "MortageOffice",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -11,14 +11,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@bitbucket.org:madebyvital/star-compliance.git"
+		"url": "git+ssh://git@bitbucket.org:madebyvital/mortageOffice.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://bitbucket.org/madebyvital/star-compliance/issues"
+		"url": "https://bitbucket.org/madebyvital/mortageoffice/issues"
 	},
-	"homepage": "https://bitbucket.org/madebyvital/star-compliance#readme",
+	"homepage": "https://bitbucket.org/madebyvital/mortageoffice#readme",
 	"dependencies": {
 		"classnames": "^2.3.2",
 		"headroom.js": "^0.12.0",
