@@ -132,6 +132,7 @@
 				}
 			}
 			@include respond-to($large,max) {
+				margin-right: auto;
 				font-size: 11.98px;
 				font-weight: 500;
 				line-height: 17.12px;
@@ -230,5 +231,32 @@
 
 	.search-submit {
 		display: none;
+	}
+}
+
+.utility-menu {
+	.form-button {
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		margin-left: -24px;
+		@include respond-to($large,min) {
+			display: none;
+		}
+
+		.menu-item-link {
+			font-size: 14px !important;
+			font-weight: 800 !important;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 24px !important;
+		}
+	}
+}
+
+.main-menu {
+	.form-button {
+		@include respond-to($large,max) {
+			display: none;
+		}
 	}
 }

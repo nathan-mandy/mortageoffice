@@ -1,28 +1,3 @@
-
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const utility = document.querySelector('.header-search');
-    const button = document.querySelector('.form-button');
-    const nav = document.querySelector('.main-menu');  
-    
-    if (utility && button) {  
-        if (window.innerWidth <= 1024) {
-            utility.appendChild(button);  
-        }
-    }
-    window.addEventListener('resize', function() {
-        if (window.innerWidth <= 1024) {
-            if (utility && button && !utility.contains(button)) {
-                utility.appendChild(button);  
-            }
-        } else {
-            if (nav && button && !nav.contains(button)) {
-                nav.appendChild(button);  
-            }
-        }
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
   const nodes = document.querySelector(".utility-menu"); 
   const textnodes = document.querySelector(".search-form-wrapper"); 
