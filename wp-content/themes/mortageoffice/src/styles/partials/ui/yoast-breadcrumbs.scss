@@ -1,0 +1,18 @@
+.yoast-breadcrumbs {
+	a,
+	.breadcrumb_last {
+		color: var(--wp--preset--color--pastel-purple);
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.10000000149011612px;
+		line-height: 26px;
+		text-decoration: none;
+	}
+
+	a {
+		&:hover {
+			color: var(--wp--preset--color--charcoal-blue);
+			text-decoration: underline;
+		}
+	}
+}

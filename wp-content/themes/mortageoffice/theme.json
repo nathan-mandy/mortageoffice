@@ -90,6 +90,11 @@
 					"color": "#999999"
 				},
 				{
+					"name": "Pastel Purple",
+					"slug": "pastel-purple",
+					"color": "#ADA1B7"
+				},
+				{
 					"name": "White",
 					"slug": "white",
 					"color": "#FFFFFF"
