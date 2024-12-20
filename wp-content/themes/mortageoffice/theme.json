@@ -95,6 +95,16 @@
 					"color": "#ADA1B7"
 				},
 				{
+					"name": "Mirage",
+					"slug": "mirage",
+					"color": "#0A1D2C"
+				},
+				{
+					"name": "Baltic Sea",
+					"slug": "baltic-sea",
+					"color": "#2A2A2A"
+				},
+				{
 					"name": "White",
 					"slug": "white",
 					"color": "#FFFFFF"
