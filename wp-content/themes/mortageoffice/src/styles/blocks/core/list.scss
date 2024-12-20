@@ -1,0 +1,60 @@
+.wp-block-list {
+	position: relative;
+
+	&.is-style-check-list {
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: 30px;
+
+			&::before {
+				position: absolute;
+				top: 4%;
+				right: 99%;
+				left: 0;
+				width: 16px;
+				height: 16px;
+				background-image: url('../src/images/Checkmark.png');
+				background-repeat: no-repeat;
+				content: '';
+			}
+
+			&:nth-child(2)::before,
+			&:nth-child(3)::before {
+				top: 11%;
+			}
+
+			&:nth-child(2)::before {
+				@include respond-to($small,max) {
+					top: 8%;
+				}
+			}
+		}
+	}
+
+	&.is-style-black-check-list {
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: 30px;
+
+			&::before {
+				position: absolute;
+				top: 16%;
+				right: 99%;
+				left: 0;
+				width: 16px;
+				height: 16px;
+				background-image: url('../src/images/black-Checkmark.png');
+				background-repeat: no-repeat;
+				content: '';
+			}
+
+		}
+	}
+
+}
