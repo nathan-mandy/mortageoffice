@@ -1,0 +1,101 @@
+.block-person-card .person-detail .bio {
+	display: flex;
+	flex-direction: column;
+	margin-top: 32px;
+	padding-top: clamp(2.5rem, 0.6818rem + 3.6364vw, 5rem);
+	padding-right: clamp(1.875rem, 0.5114rem + 2.7273vw, 3.75rem);
+	padding-bottom: clamp(1.875rem, 0.5114rem + 2.7273vw, 3.75rem);
+	padding-left: clamp(2.0625rem, 0.5625rem + 3vw, 4.125rem);
+	border-radius: 24px;
+	background: var(--wp--preset--color--light-mint);
+	gap: 30px;
+
+	.person-image {
+		display: none;
+	}
+
+	.person-header {
+		width: 100%;
+		margin-bottom: 0;
+
+		.name-title {
+			.name {
+				@extend h2;
+			}
+
+			.title {
+				color: var(--wp--preset--color--mirage);
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 0.10000000149011612px;
+				line-height: 28px;
+			}
+		}
+	}
+
+	.content {
+		p {
+			margin: 0;
+			font-size: 16px;
+			font-weight: 500;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 26px;
+		}
+	}
+}
+
+.block-person-card .bio-toggle {
+	display: none;
+}
+
+.block-person-card {
+	.overview {
+		margin-top: 16px;
+		padding-right: 0;
+
+		.name {
+			@extend h4;
+		}
+
+		.title {
+			font-size: 16px;
+			font-weight: 500;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 26px;
+		}
+	}
+
+	.person-image {
+		aspect-ratio: 0;
+
+		img {
+			border-radius: 24px;
+		}
+	}
+
+	.person-card .active-placeholder {
+		@extend h2;
+		border: 2px solid var(--wp--preset--color--mint);
+		border-radius: 24px;
+		box-shadow: none;
+	}
+
+	.person-card {
+		&::after {
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			width: 50px;
+			height: 50px;
+			transform: translateX(-50%);
+			border-right: 24px solid rgba(0, 0, 0, 0);
+			border-bottom: 24px solid var(--wp--preset--color--light-mint);
+			border-left: 24px solid rgba(0, 0, 0, 0);
+			content: '';
+		}
+	}
+
+	.person-detail {
+		margin-top: 18px;
+	}
+}
