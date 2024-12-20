@@ -113,12 +113,23 @@
 	}
 
 	.card-footer {
-		margin-top: 8px;
-
 		a {
 			font-size: 16px;
 			font-weight: 800;
 			line-height: 24px;
 		}
+	}
+}
+
+.wp-block-post {
+	&:last-of-type .skeletor-resource-card.is-style-horizontal {
+		border-bottom: none;
+	}
+
+	.skeletor-resource-card.is-style-horizontal {
+		padding-top: 20px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid var(--wp--preset--color--concrete);
+		border-radius: 0;
 	}
 }
