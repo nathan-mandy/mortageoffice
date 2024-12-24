@@ -1,21 +1,29 @@
 /* stylelint-disable  declaration-no-important */
 
 .testimonial-card {
-	padding: 0;
+	padding: 50px 0;
+	border: 1px solid var(--wp--preset--color--concrete);
+	border-radius: 16px;
 
 	.testimonial-content {
+		margin-bottom: 25px;
 		color: var(--wp--preset--color--charcoal-blue);
 		font-size: 24px;
 		font-weight: 700;
 		letter-spacing: -0.4000000059604645px;
 		line-height: 35px;
 		@include respond-to($navigation,min) {
+			margin-bottom: 35px;
 			font-size: 35px;
 			font-weight: 700;
 			letter-spacing: -0.4000000059604645px;
 			line-height: 48px;
-
 		}
+	}
+
+	.testimonial-meta {
+		width: 900px;
+		margin: 0 auto;
 	}
 
 	.wp-block-image img {
@@ -29,6 +37,7 @@
 		gap: 15px;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 35px;
 
 		.author-image img {
 			width: 64px;
@@ -47,6 +56,7 @@
 			font-weight: 700;
 			letter-spacing: 0.10000000149011612px;
 			line-height: 26px;
+			text-align: left;
 		}
 
 		.attributee-company {
@@ -61,6 +71,11 @@
 		display: flex;
 		gap: 16px;
 		justify-content: center;
+		@include respond-to($small,max) {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
 
 		.wp-block-button.is-style-outline {
 			.wp-block-button__link {
