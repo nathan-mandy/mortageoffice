@@ -1,0 +1,56 @@
+<article {{{_block_attributes}}}>
+    {{#has_object}}
+        <section class="testimonial-meta">
+            {{#image}}
+                <aside class="featured-image">
+                    {{{ image }}}
+                </aside>
+            {{/image}}
+
+            <div class="card-content">
+                {{#testimonial}}
+                    <blockquote class="wp-block-quote testimonial-content">
+                        {{{ . }}}
+                    </blockquote>
+                {{/testimonial}}
+            </div>
+            <div class="attributee">
+			  	{{#author_image}}
+                	<aside class="author-image">
+                    	<img src="{{{ url }}}" alt="{{{ alt }}}" class="{{{ class }}}" />
+                	</aside>
+            	{{/author_image}}
+                <div class="attributee-meta">
+				 	{{#name}}
+                		<span class="attributee-name">{{{ . }}}</span>
+                	{{/name}}
+                    {{#title}}
+                    <span class="attributee-title">{{{ . }}}</span>
+                    {{/title}}
+
+                    {{#company}}
+                    <span class="attributee-company">{{{ . }}}</span>
+                    {{/company}}
+                </div>
+            </div>
+        </section>
+
+        <section class="card-footer">
+            <div class="{{ button_class_string }}">{{#cta}}{{> link}}{{/cta}}</div>
+
+            {{#review_video}}
+            <div class="{{{ review_link_container_class }}} is-content-justification-center">
+                {{> link }}
+            </div>
+            {{/review_video}}
+        </section>
+    {{/has_object}}
+
+    {{^has_object}}
+        {{#is_preview}}
+            {{#notification_message}}
+                <div class="block-editor-notification">{{{ . }}}</div>
+            {{/notification_message}}
+        {{/is_preview}}
+    {{/has_object}}
+</article>
