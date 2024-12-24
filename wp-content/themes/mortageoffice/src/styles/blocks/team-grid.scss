@@ -99,3 +99,10 @@
 		margin-top: 18px;
 	}
 }
+
+.team-grid.is-layout-grid {
+	@include respond-to($navigation,max) {
+		display: flex;
+		flex-direction: column;
+	}
+}
