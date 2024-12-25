@@ -105,6 +105,11 @@
 					"color": "#2A2A2A"
 				},
 				{
+					"name": "Midnight",
+					"slug": "mid-night",
+					"color": "#0B1A35"
+				},
+				{
 					"name": "White",
 					"slug": "white",
 					"color": "#FFFFFF"

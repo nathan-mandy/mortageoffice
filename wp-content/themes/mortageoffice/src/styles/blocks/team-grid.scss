@@ -55,9 +55,11 @@
 
 		.name {
 			@extend h4;
+			color: #0B1A35;
 		}
 
 		.title {
+			color: #414148;
 			font-size: 16px;
 			font-weight: 500;
 			letter-spacing: 0.10000000149011612px;
@@ -66,7 +68,10 @@
 	}
 
 	.person-image {
-		aspect-ratio: 0;
+		@include respond-to($navigation,min) {
+			height: 250px;
+			object-fit: cover;
+		}
 
 		img {
 			border-radius: 24px;
@@ -78,6 +83,7 @@
 		border: 2px solid var(--wp--preset--color--mint);
 		border-radius: 24px;
 		box-shadow: none;
+		color: #0B1A35;
 	}
 
 	.person-card {
@@ -97,6 +103,12 @@
 
 	.person-detail {
 		margin-top: 18px;
+	}
+
+	.bio {
+		.name-title {
+			color: #0B1A35;
+		}
 	}
 }
 

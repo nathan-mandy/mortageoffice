@@ -91,8 +91,8 @@ input[type='range']::-moz-range-track {
 }
 
 input[type='range']::-webkit-slider-thumb {
-	width: 20px;
-	height: 20px;
+	width: 25px;
+	height: 23px;
 	border-radius: 50%;
 	background: #46E88C;
 	cursor: pointer;
@@ -100,8 +100,8 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 input[type='range']::-moz-range-thumb {
-	width: 20px;
-	height: 20px;
+	width: 23px;
+	height: 23px;
 	border-radius: 50%;
 	background: #46E88C;
 	cursor: pointer;

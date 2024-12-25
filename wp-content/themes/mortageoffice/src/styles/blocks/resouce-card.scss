@@ -19,6 +19,7 @@
 			flex-direction: column;
 			align-items: center;
 			width: 100%;
+			text-align: center;
 		}
 
 		.card-image {
@@ -41,16 +42,28 @@
 			padding: 4px 10px;
 			border-radius: 38px;
 			background-color: #46E88C40;
+			color: #2A2A2A;
 			font-size: 14px;
 			font-weight: 500;
+			letter-spacing: normal;
 			line-height: 24px;
 		}
 
 		.post-title {
 			margin: 0;
 			padding: 8px 0 16px;
+			color: #2A2A2A;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: -0.10000000149011612px;
+			line-height: 28px;
 
 			a {
+				color: #2A2A2A;
+				font-size: 18px;
+				font-weight: 700;
+				letter-spacing: -0.10000000149011612px;
+				line-height: 28px;
 				text-decoration: none;
 				cursor: pointer;
 			}
@@ -62,6 +75,13 @@
 				font-weight: 800;
 				line-height: 24px;
 			}
+		}
+
+		.card-terms {
+			@include respond-to($small,max) {
+				justify-content: center;
+			}
+
 		}
 	}
 
