@@ -12,7 +12,14 @@
 		font-weight: 700;
 		letter-spacing: -0.4000000059604645px;
 		line-height: 35px;
+
+		@include respond-to($large,max) {
+			margin: 0;
+			padding: 24px;
+		}
+
 		@include respond-to($navigation,min) {
+			margin: 0;
 			margin-bottom: 35px;
 			font-size: 35px;
 			font-weight: 700;
@@ -24,6 +31,9 @@
 	.testimonial-meta {
 		width: 900px;
 		margin: 0 auto;
+		@include respond-to($large,max) {
+			width: 100%;
+		}
 	}
 
 	.wp-block-image img {
@@ -94,5 +104,26 @@
 		font-size: 16px;
 		font-weight: 800;
 		line-height: 24px;
+	}
+}
+
+.testimonial-swiper {
+	.wp-block-vital-swiper {
+		@include respond-to($large,max) {
+			max-width: 100%;
+		}
+	}
+
+	.swiper-pagination-bullet {
+		width: 40px;
+		height: 6px;
+		opacity: inherit;
+		border-radius: 8px;
+		background-color: #46E88C40;
+	}
+
+	.swiper-pagination-bullet-active {
+		opacity: inherit;
+		background: var(--wp--preset--color--mint);
 	}
 }
