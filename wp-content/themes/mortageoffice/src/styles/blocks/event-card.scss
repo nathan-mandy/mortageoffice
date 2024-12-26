@@ -1,0 +1,29 @@
+.event-post-card {
+	.card-image {
+		.wp-block-image>img {
+			height: 228px;
+			object-fit: cover;
+		}
+	}
+
+	.event-term {
+		padding: 4px 10px;
+		border-radius: 38px;
+		background-color: #46E88C40;
+		color: #2A2A2A;
+		font-size: 14px;
+		font-weight: 500;
+		letter-spacing: normal;
+		line-height: 24px;
+	}
+
+	.card-footer {
+		display: flex;
+		height: 100%;
+		margin-top: 16px;
+	}
+
+	.card-content {
+		padding-bottom: 16px;
+	}
+}

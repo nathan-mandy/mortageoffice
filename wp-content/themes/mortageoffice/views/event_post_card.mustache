@@ -1,0 +1,50 @@
+<article {{{_block_attributes}}}>
+	{{#has_object}}
+		<div class="event-card-img-wrap">
+			{{#image}}
+				<aside class="card-image">
+					{{{ image }}}
+				</aside>
+			{{/image}}
+		</div>
+		<section class="card-content">
+        {{# categories.0}}
+				<aside class="card-terms event-terms">
+					{{#categories}}
+					<div class="card-term event-term event-term-category">
+						{{# permalink}}<a href="{{permalink}}" class="card-term-link">{{/ permalink}}{{{ name }}}{{# permalink}}</a>{{/ permalink}}
+					</div>
+					{{/categories}}
+				</aside>
+			{{/ categories.0}}
+			<h3 class="post-title">{{{ title }}}</h3>
+		
+            {{#event_start}}
+                <div class="event-date-picker">
+                    <span class="event-start-date">{{{ event_start }}} - </span>
+                    {{#event_end}}
+                        <span class="event-end-date">{{{ event_end }}}</span>
+                    {{/event_end}}
+                    {{#location}}
+                        <span class="location">{{location}}</span>
+                    {{/location}}
+                </div>
+            {{/event_start}}
+			{{# show_excerpt}}
+				{{# excerpt}}
+				<section class="card-excerpt">
+				{{{ . }}}
+				</section>
+				{{/ excerpt}}
+			{{/ show_excerpt}}
+			<section class="card-footer">
+				<div class="{{button_class_string}}">{{#cta}}{{> link}}{{/cta}}</div>
+			</section>
+		</section>
+	{{/has_object}}
+	{{^has_object}}
+		{{#is_preview}}
+		<div class="block-editor-notification">Select a event to display. This section will not display on the front-end of the website.</div>
+		{{/is_preview}}
+	{{/has_object}}
+</article>
