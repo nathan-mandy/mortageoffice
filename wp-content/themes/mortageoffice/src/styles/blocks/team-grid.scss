@@ -68,7 +68,7 @@
 	}
 
 	.person-image {
-		@include respond-to($navigation,min) {
+		@include respond-to($large,min) {
 			height: 250px;
 			object-fit: cover;
 		}
@@ -114,7 +114,13 @@
 
 .team-grid.is-layout-grid {
 	@include respond-to($navigation,max) {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		margin: 0 auto;
+		grid-template-columns: 48% 48%;
+	}
+	@include respond-to($small,max) {
+		display: grid;
+		margin: 0 auto;
+		grid-template-columns: 100%;
 	}
 }

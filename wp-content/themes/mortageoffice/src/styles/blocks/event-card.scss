@@ -1,4 +1,6 @@
 .event-post-card {
+	width: 100%;
+
 	.card-image {
 		.wp-block-image>img {
 			height: 228px;
@@ -26,4 +28,18 @@
 	.card-content {
 		padding-bottom: 16px;
 	}
+}
+
+.card-query-loop {
+	padding: 0 55px;
+	@include respond-to($large,max) {
+		padding: 0;
+	}
+
+	ul {
+		@include respond-to($medium,max) {
+			grid-template-columns: none;
+		}
+	}
+
 }
