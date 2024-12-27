@@ -125,14 +125,17 @@ registerBlockType('card-block/main', {
                     {cardImage(attributes.imageUrl, attributes.imageAlt, 'card_image')}
                     <h4 className="card-heading">{attributes.title}</h4>
                     <h2 className="card-title">{attributes.heading}</h2>
+                    <div className="product-second-image">
+                        {cardImage(attributes.secondImageUrl, attributes.secondImageAlt, 'card_second_image')}
+                    </div>
+                </div>
+                <div className="hover-content">
                     {attributes.body}
+                    <div className="card-button">
+                        <button className="card_button">{attributes.buttonText}</button>
+                    </div>
                 </div>
-                <div className="product-second-image">
-                    {cardImage(attributes.secondImageUrl, attributes.secondImageAlt, 'card_second_image')}
-                </div>
-                <div className="card-button">
-                    <button className="card_button">{attributes.buttonText}</button>
-                </div>
+               
             </div>
         );
     },
