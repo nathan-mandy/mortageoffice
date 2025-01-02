@@ -15,6 +15,7 @@
 		font-weight: 500;
 		letter-spacing: normal;
 		line-height: 24px;
+		text-transform: capitalize;
 	}
 
 	.card-footer {
@@ -24,11 +25,26 @@
 	}
 
 	.card-content {
-		padding-bottom: 16px;
+		.post-title {
+			color: #2A2A2A;
+		}
+
+		.event-date-picker {
+			.event-start-date,
+			.event-end-date,
+			.location {
+				color: #2A2A2A;
+			}
+		}
+	}
+
+	.card-excerpt p {
+		color: #2A2A2A;
 	}
 }
 
 .card-query-loop {
+	margin: 0;
 	padding: 0 55px;
 	@include respond-to($large,max) {
 		padding: 0;
