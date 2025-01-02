@@ -1,0 +1,43 @@
+<article {{{_block_attributes}}}>
+	{{#has_object}}
+		{{#image}}
+			<aside class="card-image">
+				<a href="{{permalink}}">{{{ image }}}</a>
+			</aside>
+		{{/image}}
+		<section class="card-content">
+			{{# categories.0}}
+				<aside class="card-terms blog-post-terms">
+					{{#categories}}
+					<div class="card-term blog-post-term blog-post-term-category">
+						{{# permalink}}<a href="{{permalink}}" class="card-term-link">{{/ permalink}}{{{ name }}}{{# permalink}}</a>{{/ permalink}}
+					</div>
+					{{/categories}}
+
+					{{# additional_meta }}
+					{{{ . }}}
+					{{/ additional_meta }}
+				</aside>
+			{{/ categories.0}}
+
+			<h3 class="post-title"><a href="{{permalink}}">{{{ title }}}</a></h3>
+
+			{{# show_excerpt}}
+				{{# excerpt}}
+				<section class="card-excerpt">
+				{{{ . }}}
+				</section>
+				{{/ excerpt}}
+			{{/ show_excerpt}}
+
+			<section class="card-footer">
+				<div class="{{button_class_string}}">{{#cta}}{{> link}}{{/cta}}</div>
+			</section>	
+		</section>
+	{{/has_object}}
+	{{^has_object}}
+		{{#is_preview}}
+		<div class="block-editor-notification">Select a blog post to display. This section will not display on the front-end of the website.</div>
+		{{/is_preview}}
+	{{/has_object}}
+</article>

@@ -59,5 +59,6 @@
 .card-row {
 	@include respond-to($large,max) {
 		padding: 0 !important;
+		padding-bottom: 24px !important;
 	}
 }
