@@ -19,6 +19,10 @@
 	.menu-item a::after {
 		display: none;
 	}
+
+	.sub-menu {
+		overflow: unset;
+	}
 }
 
 .footer-nav .menu-item .sub-menu {

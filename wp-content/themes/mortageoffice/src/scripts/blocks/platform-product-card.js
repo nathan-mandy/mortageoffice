@@ -1,5 +1,5 @@
-const { RichText, MediaUpload, PlainText } = wp.editor;
 const { registerBlockType } = wp.blocks;
+const { MediaUpload, RichText, PlainText } = wp.blockEditor;
 const { Button } = wp.components;
 
 registerBlockType('card-block/main', {
@@ -9,54 +9,63 @@ registerBlockType('card-block/main', {
 
     attributes: {
         title: {
+            type: 'string',
             source: 'text',
-            selector: '.card_title',
+            selector: '.card-heading',
         },
         heading: {
+            type: 'string',
             source: 'text',
-            selector: '.card_heading',
+            selector: '.card-title',
         },
         body: {
-            type: 'array',
-            source: 'children',
-            selector: '.card_body',
+            type: 'string',
+            source: 'html',
+            selector: '.hover-content p',
         },
         imageAlt: {
+            type: 'string',
             attribute: 'alt',
             selector: '.card_image',
         },
         imageUrl: {
+            type: 'string',
             attribute: 'src',
             selector: '.card_image',
         },
         secondImageAlt: {
+            type: 'string',
             attribute: 'alt',
             selector: '.card_second_image',
         },
         secondImageUrl: {
+            type: 'string',
             attribute: 'src',
             selector: '.card_second_image',
         },
         buttonText: {
             type: 'string',
             source: 'text',
-            selector: '.card_button',
+            selector: '.wp-block-button__link',
         },
     },
 
-    edit({ attributes, className, setAttributes }) {
+    supports: {
+        html: false, // Prevents direct HTML editing to avoid mismatch issues
+    },
+
+    edit({ attributes, setAttributes }) {
         const getImageButton = (openEvent, imageUrl) => {
             if (imageUrl) {
                 return <img src={imageUrl} onClick={openEvent} className="image" />;
-            } else {
-                return (
-                    <div className="button-container">
-                        <Button onClick={openEvent} className="button button-large">
-                            Upload image
-                        </Button>
-                    </div>
-                );
             }
+            return (
+                <div className="button-container">
+                    <Button onClick={openEvent} className="button button-large">
+                        Upload image
+                    </Button>
+                </div>
+            );
         };
 
         return (
@@ -69,7 +78,6 @@ registerBlockType('card-block/main', {
                         type="image"
                         render={({ open }) => getImageButton(open, attributes.imageUrl)}
                     />
-
                     <PlainText
                         onChange={(content) => setAttributes({ title: content })}
                         value={attributes.title}
@@ -88,8 +96,8 @@ registerBlockType('card-block/main', {
                     value={attributes.body}
                     multiline="p"
                     placeholder="Card Text"
+                    className="hover-content"
                 />
-
                 <div className="product-second-image">
                     <MediaUpload
                         onSelect={(media) =>
@@ -103,39 +111,43 @@ registerBlockType('card-block/main', {
                     onChange={(content) => setAttributes({ buttonText: content })}
                     value={attributes.buttonText}
                     placeholder="Button Text"
-                    className="card-button-text"
+                    className="wp-block-button__link"
                 />
             </div>
         );
     },
 
     save({ attributes }) {
-        const cardImage = (src, alt, className) => {
-            if (!src) return null;
-
-            if (alt) {
-                return <img className={className} src={src} alt={alt} />;
-            }
-            return <img className={className} src={src} alt="" aria-hidden="true" />;
-        };
-
         return (
             <div className="product-card-container">
                 <div className="product-icon-heading">
-                    {cardImage(attributes.imageUrl, attributes.imageAlt, 'card_image')}
+                    {attributes.imageUrl && (
+                        <img
+                            className="card_image"
+                            src={attributes.imageUrl}
+                            alt={attributes.imageAlt || ''}
+                        />
+                    )}
                     <h4 className="card-heading">{attributes.title}</h4>
+                </div>
+                <div className="product-second-image">
                     <h2 className="card-title">{attributes.heading}</h2>
-                    <div className="product-second-image">
-                        {cardImage(attributes.secondImageUrl, attributes.secondImageAlt, 'card_second_image')}
-                    </div>
+                    {attributes.secondImageUrl && (
+                        <img
+                            className="card_second_image"
+                            src={attributes.secondImageUrl}
+                            alt={attributes.secondImageAlt || ''}
+                        />
+                    )}
                 </div>
                 <div className="hover-content">
-                    {attributes.body}
-                    <div className="card-button">
-                        <button className="card_button">{attributes.buttonText}</button>
+                    {attributes.body && (
+                        <RichText.Content tagName="p" value={attributes.body} />
+                    )}
+                    <div className="wp-block-button">
+                        <a className="wp-block-button__link">{attributes.buttonText}</a>
                     </div>
                 </div>
-               
             </div>
         );
     },

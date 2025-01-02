@@ -1,0 +1,105 @@
+/* stylelint-disable  declaration-no-important */
+
+.wp-block-card-block-main.product-card-container {
+	position: relative;
+	width: 372px;
+	padding: 42px 32px 0;
+	border-radius: 20px;
+	background: var(--wp--preset--color--iris);
+
+	@include respond-to($xsmall,max) {
+		width: 100%;
+		padding: 20px;
+	}
+
+	.wp-block-button {
+		margin-top: 32px;
+		@include respond-to($xsmall,max) {
+			margin-top: 22px;
+		}
+	}
+
+	.wp-block-button__link {
+		padding: 8px 16px !important;
+		font-size: 14px;
+		font-weight: 800;
+		letter-spacing: 0.10000000149011612px;
+		line-height: 24px;
+	}
+
+	.product-icon-heading {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		img {
+			width: 25px;
+			height: 25px;
+		}
+
+		.card-heading {
+			margin: 0;
+			color: #ffffff;
+		}
+	}
+
+	.hover-content {
+		@include respond-to($small,min) {
+			position: absolute;
+			top: 46%;
+			width: 275px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			pointer-events: none;
+		}
+
+		@include respond-to($navigation,max) {
+			top: 35%;
+		}
+		@include respond-to($small,max) {
+			padding-bottom: 14px;
+		}
+	}
+
+	.hover-content p {
+		margin-top: 24px;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: 500;
+		letter-spacing: 0.10000000149011612px;
+		line-height: 26px;
+		@include respond-to($small,max) {
+			font-size: 14px;
+		}
+	}
+
+	.card-title {
+		color: #ffffff;
+	}
+
+	.card_second_image {
+		position: relative;
+		bottom: -5px;
+		max-width: 340px;
+		margin-left: 1px;
+		@include respond-to($xsmall,max) {
+			bottom: -25px;
+			max-width: 100%;
+			margin-left: 21px;
+		}
+	}
+}
+
+.product-card-container:hover .card_second_image {
+	@include respond-to($small,min) {
+		opacity: 0;
+	}
+
+}
+
+.product-card-container:hover .hover-content {
+	@include respond-to($small,min) {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
