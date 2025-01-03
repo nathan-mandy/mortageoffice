@@ -1,0 +1,38 @@
+.card-with-image {
+	position: relative;
+	cursor: pointer;
+
+	&:hover {
+		.wp-block-image {
+			img {
+				transform: scale(1.2);
+				transition: 0.3s ease all;
+			}
+		}
+
+		.wp-block-button.is-style-text .wp-block-button__link::after {
+			transform: translateX(0.4rem) translateY(0);
+		}
+
+	}
+
+	.wp-block-image {
+		overflow: hidden;
+		border-radius: 16px;
+
+		img {
+			transition: 0.3s ease all;
+		}
+	}
+
+	.wp-block-button__link {
+		@extend h3;
+	}
+
+	.wp-block-button.is-style-text .wp-block-button__link::after {
+		width: 24px;
+		height: 24px;
+		margin-bottom: 2px;
+		background-image: url('../src/images/industry-button.png');
+	}
+}
