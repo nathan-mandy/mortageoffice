@@ -17,6 +17,7 @@
 	.wp-block-columns.dividers .wp-block-column+.wp-block-column::before {
 		@include respond-to($navigation,min) {
 			top: 18px;
+			left: 0;
 			height: 255px;
 		}
 	}
@@ -28,14 +29,13 @@
 	}
 }
 
-.dividers {
-	gap: 10px !important;
-}
-
 .image-grid {
 	margin: 0 40px;
-	@include respond-to($navigation,max) {
+	@include respond-to($xlarge,max) {
 		text-align: center;
+	}
+	@include respond-to($navigation,max) {
+		margin: 20%;
 	}
 
 	.first-child {
@@ -60,5 +60,18 @@
 	@include respond-to($large,max) {
 		padding: 0 !important;
 		padding-bottom: 24px !important;
+	}
+}
+
+.column-dividers {
+	padding-right: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
+	padding-left: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
+}
+
+.column-divider {
+	padding-right: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
+
+	@include respond-to($xsmall,max) {
+		padding-left: 24px;
 	}
 }
