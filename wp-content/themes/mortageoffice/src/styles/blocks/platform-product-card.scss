@@ -6,15 +6,15 @@
 	padding: 42px 32px 0;
 	border-radius: 20px;
 	background: var(--wp--preset--color--iris);
-
-	@include respond-to($xsmall,max) {
+	transition: transform 0.3s ease, background-color 0.3s ease;
+	@include respond-to($xsmall, max) {
 		width: 100%;
 		padding: 20px;
 	}
 
 	.wp-block-button {
 		margin-top: 32px;
-		@include respond-to($xsmall,max) {
+		@include respond-to($xsmall, max) {
 			margin-top: 22px;
 		}
 	}
@@ -23,7 +23,7 @@
 		padding: 8px 16px !important;
 		font-size: 14px;
 		font-weight: 800;
-		letter-spacing: 0.10000000149011612px;
+		letter-spacing: 0.1px;
 		line-height: 24px;
 	}
 
@@ -44,19 +44,18 @@
 	}
 
 	.hover-content {
-		@include respond-to($small,min) {
-			position: absolute;
-			top: 46%;
-			width: 275px;
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			pointer-events: none;
-		}
+		position: absolute;
+		top: 46%;
+		width: 275px;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease, transform 0.3s ease;
 
-		@include respond-to($navigation,max) {
+		@include respond-to($navigation, max) {
 			top: 35%;
 		}
-		@include respond-to($small,max) {
+
+		@include respond-to($small, max) {
 			padding-bottom: 14px;
 		}
 	}
@@ -66,9 +65,10 @@
 		color: #ffffff;
 		font-size: 16px;
 		font-weight: 500;
-		letter-spacing: 0.10000000149011612px;
+		letter-spacing: 0.1px;
 		line-height: 26px;
-		@include respond-to($small,max) {
+
+		@include respond-to($small, max) {
 			font-size: 14px;
 		}
 	}
@@ -82,7 +82,9 @@
 		bottom: -5px;
 		max-width: 340px;
 		margin-left: 1px;
-		@include respond-to($xsmall,max) {
+		transition: opacity 0.3s ease, transform 0.3s ease;
+
+		@include respond-to($xsmall, max) {
 			bottom: -25px;
 			max-width: 100%;
 			margin-left: 21px;
@@ -91,15 +93,17 @@
 }
 
 .product-card-container:hover .card_second_image {
-	@include respond-to($small,min) {
+	@include respond-to($small, min) {
+		transform: translateY(-10px);
 		opacity: 0;
 	}
-
 }
 
 .product-card-container:hover .hover-content {
-	@include respond-to($small,min) {
+	@include respond-to($small, min) {
+		transform: translateY(-10px);
 		opacity: 1;
+		transition: opacity 0.3s ease, transform 0.3s ease;
 		pointer-events: all;
 	}
 }
