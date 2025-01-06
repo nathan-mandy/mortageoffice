@@ -74,6 +74,7 @@
 	}
 
 	.card-title {
+		margin-bottom: 16px;
 		color: #ffffff;
 	}
 
@@ -101,7 +102,6 @@
 
 .product-card-container:hover .hover-content {
 	@include respond-to($small, min) {
-		transform: translateY(-10px);
 		opacity: 1;
 		transition: opacity 0.3s ease, transform 0.3s ease;
 		pointer-events: all;

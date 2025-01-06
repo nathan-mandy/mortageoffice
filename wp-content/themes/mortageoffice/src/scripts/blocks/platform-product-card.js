@@ -82,7 +82,7 @@ registerBlockType('card-block/main', {
                         onChange={(content) => setAttributes({ title: content })}
                         value={attributes.title}
                         placeholder="Your card title"
-                        className="card-heading"
+                        className="card-heading is-style-eyebrow-heading"
                     />
                 </div>
                 <PlainText
@@ -128,7 +128,7 @@ registerBlockType('card-block/main', {
                             alt={attributes.imageAlt || ''}
                         />
                     )}
-                    <h4 className="card-heading">{attributes.title}</h4>
+                    <h4 className="card-heading is-style-eyebrow-heading">{attributes.title}</h4>
                 </div>
                 <div className="product-second-image">
                     <h2 className="card-title">{attributes.heading}</h2>
