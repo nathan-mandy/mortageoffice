@@ -1,0 +1,19 @@
+.blog-post-card {
+	.card-term {
+		padding: 4px 10px;
+		border-radius: 38px;
+		background-color: #46E88C40;
+		color: #2A2A2A;
+		font-size: 14px;
+		font-weight: 500;
+		letter-spacing: normal;
+		line-height: 24px;
+		text-transform: capitalize;
+	}
+
+	.card-excerpt p,
+	.post-title a,
+	.card-term-link {
+		color: #2A2A2A;
+	}
+}
