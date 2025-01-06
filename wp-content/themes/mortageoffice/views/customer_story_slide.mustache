@@ -1,0 +1,54 @@
+<article {{{_block_attributes}}}>
+	{{#has_object}}
+		<section class="card-content">
+			{{# card_label }}
+			<div class="card-label is-style-eyebrow-heading">{{{ . }}}</div>
+			{{/ card_label }}
+
+			{{# quote }}
+			<section class="card-excerpt">
+			{{{ . }}}
+			</section>
+			{{/ quote }}
+
+			<div class="meta">
+				<div class="attributee">
+				<div class="name">{{{ name }}}</div>
+				<div class="title">{{{ title }}}</div>
+				</div>
+
+				{{# logo }}
+				<div class="company">
+					<div class="logo">{{{.}}}</div>
+				</div>
+				{{/ logo }}
+			</div>
+
+			<section class="card-footer">
+				<div class="{{button_class_string}}">{{#cta}}{{> link}}{{/cta}}</div>
+			</section>	
+		</section>
+
+		{{#image}}
+			<aside class="card-image">
+				{{{ image }}}
+
+				{{# stats.0 }}
+				<div class="stats">
+					{{# stats }}
+					<div class="stat">
+						<div class="value">{{{ stat_number }}}</div>
+						<div class="label">{{{ stat_label }}}</div>
+					</div>
+					{{/ stats }}
+				</div>
+				{{/ stats.0 }}
+			</aside>
+		{{/image}}
+	{{/has_object}}
+	{{^has_object}}
+		{{#is_preview}}
+		<div class="block-editor-notification">Select a blog post to display. This section will not display on the front-end of the website.</div>
+		{{/is_preview}}
+	{{/has_object}}
+</article>

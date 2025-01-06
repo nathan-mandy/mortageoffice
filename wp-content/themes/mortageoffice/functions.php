@@ -10,3 +10,5 @@ require_once $inc . 'post-types/event.php';
 require_once $inc . 'post-types/customer-story-card.php';
 require_once $inc . 'event-card.php';
 require_once $inc . 'customer-stories-card.php';
+require_once $inc . 'class-custom-fields.php';
+require_once $inc . 'customer-story-slide.php';
