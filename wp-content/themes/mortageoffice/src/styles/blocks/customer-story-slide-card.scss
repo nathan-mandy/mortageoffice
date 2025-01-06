@@ -116,7 +116,7 @@
 				height: 100%;
 				border-top-right-radius: 24px;
 				border-bottom-right-radius: 24px;
-
+				object-fit: cover;
 				@include respond-to($large,max) {
 					width: 100%;
 				}
