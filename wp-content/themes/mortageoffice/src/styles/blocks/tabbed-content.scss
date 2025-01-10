@@ -1,0 +1,37 @@
+.wp-block-vital-tabbed-content {
+	.tabbed-content__tab {
+		padding: 14px 32px;
+		border: 1px solid var(--wp--preset--color--charcoal-blue);
+		border-radius: 48px;
+		background: transparent;
+		font-size: 18px;
+		font-weight: 800;
+		line-height: 24.59px;
+		cursor: pointer;
+		transition: 0.3s ease all;
+
+		&.active,
+		&:hover {
+			border: 1px solid var(--wp--custom--colors--button-bg);
+			background-color: var(--wp--custom--colors--button-bg);
+		}
+
+		@include respond-to($navigation,max) {
+			padding: 10px 16px;
+			font-size: 14px;
+			line-height: normal;
+		}
+	}
+
+	.tabbed-content__tabs {
+		justify-content: center;
+		margin-top: clamp(1.25rem, 0.7045rem + 1.0909vw, 2rem);
+		margin-bottom: clamp(1.625rem, 0.4432rem + 2.3636vw, 3.25rem);
+		gap: 48px;
+
+		@include respond-to($navigation,max) {
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+	}
+}
