@@ -1,6 +1,8 @@
 const { registerBlockType } = wp.blocks;
-const { MediaUpload, RichText, PlainText } = wp.blockEditor;
-const { Button } = wp.components;
+const { MediaUpload, RichText, PlainText, InspectorControls } = wp.blockEditor;
+const { Button, PanelBody, ColorPalette } = wp.components;
+const { __ } = wp.i18n;
+const { useSelect } = wp.data;
 
 registerBlockType('card-block/main', {
     title: 'Platform Product Card',
@@ -48,6 +50,10 @@ registerBlockType('card-block/main', {
             source: 'text',
             selector: '.wp-block-button__link',
         },
+        backgroundColor: {
+            type: 'string',
+            default: '', // Default background color
+        },
     },
 
     supports: {
@@ -55,6 +61,12 @@ registerBlockType('card-block/main', {
     },
 
     edit({ attributes, setAttributes }) {
+        // Fetch theme colors dynamically using useSelect
+        const colors = useSelect(
+            (select) => select('core/block-editor').getSettings().colors,
+            []
+        );
+
         const getImageButton = (openEvent, imageUrl) => {
             if (imageUrl) {
                 return <img src={imageUrl} onClick={openEvent} className="image" />;
@@ -69,57 +81,77 @@ registerBlockType('card-block/main', {
         };
 
         return (
-            <div className="product-card-container">
-                <div className="product-icon-heading">
-                    <MediaUpload
-                        onSelect={(media) =>
-                            setAttributes({ imageAlt: media.alt, imageUrl: media.url })
-                        }
-                        type="image"
-                        render={({ open }) => getImageButton(open, attributes.imageUrl)}
-                    />
+            <>
+                <InspectorControls>
+                    <PanelBody title={__('Background Settings', 'Mortageoffice')}>
+                        <ColorPalette
+                            colors={colors}
+                            value={attributes.backgroundColor}
+                            onChange={(newColor) => setAttributes({ backgroundColor: newColor })}
+                        />
+                    </PanelBody>
+                </InspectorControls>
+                <div
+                    className="product-card-container"
+                    style={{ backgroundColor: attributes.backgroundColor }}
+                >
+                    <div className="product-icon-heading">
+                        <MediaUpload
+                            onSelect={(media) =>
+                                setAttributes({ imageAlt: media.alt, imageUrl: media.url })
+                            }
+                            type="image"
+                            render={({ open }) => getImageButton(open, attributes.imageUrl)}
+                        />
+                        <PlainText
+                            onChange={(content) => setAttributes({ title: content })}
+                            value={attributes.title}
+                            placeholder="Your card title"
+                            className="card-heading is-style-eyebrow-heading"
+                        />
+                    </div>
                     <PlainText
-                        onChange={(content) => setAttributes({ title: content })}
-                        value={attributes.title}
-                        placeholder="Your card title"
-                        className="card-heading is-style-eyebrow-heading"
+                        onChange={(content) => setAttributes({ heading: content })}
+                        value={attributes.heading}
+                        placeholder="Your card heading"
+                        className="card-title"
+                    />
+                    <RichText
+                        onChange={(content) => setAttributes({ body: content })}
+                        value={attributes.body}
+                        multiline="p"
+                        placeholder="Card Text"
+                        className="hover-content"
+                    />
+                    <div className="product-second-image">
+                        <MediaUpload
+                            onSelect={(media) =>
+                                setAttributes({
+                                    secondImageAlt: media.alt,
+                                    secondImageUrl: media.url,
+                                })
+                            }
+                            type="image"
+                            render={({ open }) => getImageButton(open, attributes.secondImageUrl)}
+                        />
+                    </div>
+                    <PlainText
+                        onChange={(content) => setAttributes({ buttonText: content })}
+                        value={attributes.buttonText}
+                        placeholder="Button Text"
+                        className="wp-block-button__link"
                     />
                 </div>
-                <PlainText
-                    onChange={(content) => setAttributes({ heading: content })}
-                    value={attributes.heading}
-                    placeholder="Your card heading"
-                    className="card-title"
-                />
-                <RichText
-                    onChange={(content) => setAttributes({ body: content })}
-                    value={attributes.body}
-                    multiline="p"
-                    placeholder="Card Text"
-                    className="hover-content"
-                />
-                <div className="product-second-image">
-                    <MediaUpload
-                        onSelect={(media) =>
-                            setAttributes({ secondImageAlt: media.alt, secondImageUrl: media.url })
-                        }
-                        type="image"
-                        render={({ open }) => getImageButton(open, attributes.secondImageUrl)}
-                    />
-                </div>
-                <PlainText
-                    onChange={(content) => setAttributes({ buttonText: content })}
-                    value={attributes.buttonText}
-                    placeholder="Button Text"
-                    className="wp-block-button__link"
-                />
-            </div>
+            </>
         );
     },
 
     save({ attributes }) {
         return (
-            <div className="product-card-container">
+            <div
+                className="product-card-container"
+                style={{ backgroundColor: attributes.backgroundColor }}
+            >
                 <div className="product-icon-heading">
                     {attributes.imageUrl && (
                         <img
