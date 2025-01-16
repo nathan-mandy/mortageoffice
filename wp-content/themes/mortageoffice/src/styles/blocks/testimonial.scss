@@ -110,6 +110,11 @@
 		font-weight: 800;
 		line-height: 24px;
 	}
+
+	&.has_custom_light_sky {
+		border: none;
+		background: var(--wp--preset--color--light-sky);
+	}
 }
 
 .testimonial-swiper {
