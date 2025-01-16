@@ -85,6 +85,7 @@
 	gap: 45px;
 	align-items: baseline;
 	justify-content: end;
+	max-width: 95px;
 
 	@include respond-to($xlarge+2px,max) {
 		margin-right: 30px;
@@ -93,6 +94,7 @@
 		flex-direction: column;
 		align-items: unset;
 		width: 100%;
+		max-width: none;
 		margin-top: 16px;
 		margin-right: 0;
 		padding: 0 24px;
@@ -103,91 +105,73 @@
 		display: block;
 
 		@include respond-to($large,max) {
+			display: none;
 			margin-top: 20px;
 			margin-bottom: 16px;
 			margin-left: 24px;
 		}
-
-		.menu-item-link {
-			position: relative;
-			margin-right: 40px;
-			letter-spacing: normal;
-			line-height: 20px;
-
-			&::before {
-				position: absolute;
-				top: 4px ;
-				left: -28px;
-				width: 16px ;
-				height: 16px ;
-				margin: 0 0 3px 6px ;
-				transform: none ;
-				background-image: url('../src/images/login-logo.png') ;
-				background-repeat: no-repeat ;
-				content: '' ;
-
-				@include respond-to($large,max) {
-					top: 2px;
-					background-image: url('../src/images/login-logo-small.png') ;
-					background-repeat: no-repeat ;
-				}
-			}
-			@include respond-to($large,max) {
-				margin-right: auto;
-				font-size: 11.98px;
-				font-weight: 500;
-				line-height: 17.12px;
-			}
-		}
 	}
 
-	.utility-menu-wrapper {
-		width: auto;
-		@include respond-to($large,max) {
-			border-top: 1px solid #D7D7E4;
+	.search-form-wrapper {
+		max-width: 100%;
+
+		@include respond-to($navigation) {
+			width: 100%;
+			pointer-events: auto;
 		}
 	}
 
 	.search-toggle {
-		top: 45%;
-		right: auto;
+		@include respond-to($navigation) {
+			position: relative;
+			display: none;
+		}
+	}
+
+	.search-form {
 		display: flex;
-		align-items: center;
-		color: #414148;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 20px;
-		gap: 6px;
+		min-width: 90px;
+	}
+
+	.search-input-wrapper {
+		position: relative;
+		width: 100%;
+		padding-left: 20px;
 
 		&::before {
-			font-size: 12px;
-		}
-
-		@include respond-to($large,max) {
-			top: 50%;
-			margin-top: 18px;
-			margin-left: -21px;
-			font-size: 11.98px;
-			font-weight: 500;
-			line-height: 17.12px;
+			position: absolute;
+			top: 6px;
+			left: 0;
+			width: 13px;
+			height: 13px;
+			background-image: url('../src/images/search.png') ;
+			background-repeat: no-repeat ;
+			content: '' ;
 		}
 	}
 
-	.search-form-wrapper {
-		@include respond-to($navigation,max) {
-			width: 0 ;
-			overflow: hidden;
+	.search-field {
+		border: none;
+		font-size: 14px;
+
+		&:focus {
+			outline: none;
+			border: none;
+			box-shadow: none;
 		}
 
-		input {
-			height: 30px;
-			border: 1px solid #C558FF;
-			border-radius: 4px;
+		&::placeholder {
+			width: 100%;
+			color: var(--wp--custom--colors--body);
 		}
 	}
 
-	.form-button {
-		list-style: none;
+	.search-submit {
+		position: relative;
+		display: none;
+		width: 20px;
+		height: 20px;
+		color: #fff;
 	}
 }
 
@@ -196,51 +180,15 @@
 	@include respond-to($large,max) {
 		gap: 20px;
 	}
-
-	.search-toggle {
-		gap: 20px;
-		top: 50%;
-		@include respond-to($large,max) {
-			top: 55%;
-			right: 10%;
-			gap: 10px;
-		}
-		@include respond-to($medium,max) {
-			top: 55%;
-			right: 24%;
-			gap: 10px;
-		}
-		@include respond-to($small,max) {
-			top: 55%;
-			right: 18%;
-			gap: 10px;
-		}
-	}
-
-	.search-form-wrapper {
-		@include respond-to($large,max) {
-			width: 85%;
-			max-width: 90%;
-			margin-top: 10px;
-			margin-left: -21px;
-		}
-		@include respond-to($medium,max) {
-			width: 70%;
-			max-width: 90%;
-		}
-	}
-
-	.search-submit {
-		display: none;
-	}
 }
 
 .utility-menu {
 	.form-button {
 		position: absolute;
-		top: 100%;
+		bottom: -100px;
+		left: 0;
 		width: 100%;
-		margin-left: -24px;
+		padding: 0 24px;
 		@include respond-to($large,min) {
 			display: none;
 		}
@@ -260,4 +208,54 @@
 			display: none;
 		}
 	}
+}
+
+.header .menu.utility-menu {
+	@include respond-to($large,max) {
+		display: flex;
+		flex-direction: column;
+		align-items: baseline;
+		justify-content: center;
+		margin-right: 1.5rem;
+		margin-left: 1.5rem;
+		padding: 24px 24px 0;
+		border-top: 1px solid var(--wp--preset--color--concrete);
+	}
+
+	.menu-item-link {
+		position: relative;
+		letter-spacing: normal;
+		line-height: 20px;
+
+		&::before {
+			position: absolute;
+			top: 4px ;
+			left: -28px;
+			width: 16px ;
+			height: 16px ;
+			margin: 0 0 3px 6px ;
+			transform: none ;
+			background-image: url('../src/images/login-logo.png') ;
+			background-repeat: no-repeat ;
+			content: '' ;
+
+			@include respond-to($large,max) {
+				top: 2px;
+				padding-left: 24px ;
+				background-image: url('../src/images/login-logo-small.png') ;
+				background-repeat: no-repeat ;
+			}
+		}
+		@include respond-to($large,max) {
+			margin-right: auto;
+			font-size: 11.98px;
+			font-weight: 500;
+			line-height: 17.12px;
+		}
+	}
+
+}
+
+.utility-menu-wrapper {
+	margin-top: 24px;
 }
