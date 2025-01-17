@@ -81,7 +81,7 @@
 			@include respond-to($small,max) {
 				justify-content: center;
 			}
-
+			gap: 16px;
 		}
 	}
 
