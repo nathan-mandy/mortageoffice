@@ -21,7 +21,7 @@
 	.card-footer {
 		display: flex;
 		height: 100%;
-		margin-top: 16px;
+		margin-top: 28px;
 	}
 
 	.card-content {
@@ -34,6 +34,19 @@
 			.event-end-date,
 			.location {
 				color: #2A2A2A;
+				font-size: 16px;
+				font-weight: 500;
+				letter-spacing: 0.1px;
+				line-height: 26px;
+			}
+
+			.event-end-date {
+				padding: 0 16px 0 0 ;
+				border-right: 1px solid var(--wp--preset--color--lemon-grass);
+			}
+
+			.location {
+				padding: 0 0 0 16px ;
 			}
 		}
 	}
