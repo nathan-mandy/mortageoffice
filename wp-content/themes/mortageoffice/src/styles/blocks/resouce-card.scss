@@ -47,6 +47,11 @@
 			font-weight: 500;
 			letter-spacing: normal;
 			line-height: 24px;
+
+			a {
+				color: #2A2A2A;
+			}
+
 		}
 
 		.post-title {
@@ -124,6 +129,7 @@
 	.card-excerpt {
 		p {
 			margin-top: 0;
+			color: #2A2A2A;
 			font-weight: 400;
 		}
 
@@ -135,6 +141,7 @@
 
 	.card-footer {
 		a {
+			margin-top: 12px;
 			font-size: 16px;
 			font-weight: 800;
 			line-height: 24px;
@@ -153,4 +160,8 @@
 		border-bottom: 1px solid var(--wp--preset--color--concrete);
 		border-radius: 0;
 	}
+}
+
+.card-term-link {
+	color: #2A2A2A;
 }
