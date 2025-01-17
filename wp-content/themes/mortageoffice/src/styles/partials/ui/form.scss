@@ -60,7 +60,7 @@
 		outline: none !important;
 		border-radius: 0 !important;
 		border-bottom-color: var(--wp--preset--color--egyptian-blue) !important;
-		background: none;
+		background: none !important;
 		color: #FFFFFF !important;
 	}
 
@@ -97,9 +97,22 @@
 			margin-bottom: 0 !important;
 			padding: 14px 48px !important;
 			border-radius: 36px ;
+			background-color: var(--bg-color);
 			font-size: 18px !important;
 			font-weight: 800 !important;
 			line-height: 24.59px;
+
+			&:hover {
+				border-color: var(--wp--custom--colors--button-bg-hover);
+				background-color: var(--wp--custom--colors--button-bg-hover);
+			}
+
+			&:focus {
+				border-radius: 36px !important ;
+				border-color: var(--wp--custom--colors--button-bg-hover) !important;
+				background-color: var(--wp--custom--colors--button-bg-hover) !important;
+				color: var(--wp--custom--colors--button) !important;
+			}
 		}
 	}
 
@@ -128,6 +141,27 @@
 	.validation_message {
 		border: none !important;
 		background: none !important;
+	}
+
+	input:placeholder-shown,
+	textarea:placeholder-shown {
+
+		background-color: var(--wp--preset--color--white);
+	}
+
+	input:not(:placeholder-shown),
+	textarea:not(:placeholder-shown) {
+		background-color: var(--wp--custom--colors--input-bg);
+	}
+
+	input[type=email],
+	input[type=number],
+	input[type=password],
+	input[type=tel],
+	input[type=text],
+	select,
+	textarea {
+		color: #414148;
 	}
 }
 
@@ -273,26 +307,5 @@
 }
 /* Default (empty) state */
 
-input:placeholder-shown,
-textarea:placeholder-shown {
-
-	background-color: var(--wp--preset--color--white);
-}
-
-/* Filled state */
-
-input:not(:placeholder-shown),
-textarea:not(:placeholder-shown) {
-	background-color: var(--wp--custom--colors--input-bg);
-}
+/* Filled state
 /* Customize the placeholder text color */
-
-input[type=email],
-input[type=number],
-input[type=password],
-input[type=tel],
-input[type=text],
-select,
-textarea {
-	color: #414148;
-}
