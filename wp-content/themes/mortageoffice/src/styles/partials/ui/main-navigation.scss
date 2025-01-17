@@ -38,7 +38,7 @@
 	letter-spacing: 0.10000000149011612px;
 	line-height: 24px;
 
-	@include respond-to($large,max) {
+	@include respond-to($xlarge,max) {
 		font-size: 15px;
 	}
 }

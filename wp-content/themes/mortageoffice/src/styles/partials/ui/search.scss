@@ -13,7 +13,7 @@
 	&.desktop {
 		display: none;
 
-		@include respond-to($large) {
+		@include respond-to($large+1px) {
 			display: flex;
 			align-items: baseline;
 			color: var(--wp--custom--colors--body);
@@ -26,7 +26,7 @@
 		flex-direction: column;
 		align-items: baseline;
 		justify-content: center;
-		@include respond-to($large) {
+		@include respond-to($large+1px) {
 			display: none;
 		}
 	}

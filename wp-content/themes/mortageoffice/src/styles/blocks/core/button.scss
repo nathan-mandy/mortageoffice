@@ -67,6 +67,10 @@
 		font-weight: 800;
 		letter-spacing: 0.10000000149011612px;
 		line-height: 24px;
+
+		@include respond-to($xlarge,max) {
+			padding: 6px 12px !important;
+		}
 	}
 
 	a {

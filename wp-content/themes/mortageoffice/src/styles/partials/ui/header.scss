@@ -189,7 +189,7 @@
 		left: 0;
 		width: 100%;
 		padding: 0 24px;
-		@include respond-to($large,min) {
+		@include respond-to($large+1px,min) {
 			display: none;
 		}
 
