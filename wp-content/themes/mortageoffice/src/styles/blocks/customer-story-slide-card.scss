@@ -38,6 +38,7 @@
 			font-weight: 700;
 			letter-spacing: -0.4000000059604645px;
 			line-height: 35px;
+			text-indent: -17px;
 			@include respond-to($navigation,min) {
 				font-size: 35px;
 				font-weight: 700;
@@ -50,7 +51,7 @@
 			display: flex;
 			justify-content: space-between;
 			width: 360px;
-			margin-top: 48px;
+			margin-top: 40px;
 
 			@include respond-to($small,max) {
 				flex-direction: column;
@@ -61,7 +62,7 @@
 
 			.attributee {
 				height: 51px;
-				padding-right: 55px;
+				padding-right: 60px;
 				border-right: 1px solid #D7D7E4 ;
 
 				@include respond-to($small,max) {
@@ -78,6 +79,7 @@
 			}
 
 			.title {
+				margin-top: 4px;
 				font-size: 14px;
 				font-weight: 500;
 				line-height: 24px;
