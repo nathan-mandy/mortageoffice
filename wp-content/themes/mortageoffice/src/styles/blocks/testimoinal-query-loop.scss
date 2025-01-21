@@ -1,0 +1,33 @@
+.testimoinal-query-loop {
+	.facetwp-filter {
+		.filters {
+			box-shadow: none;
+			background: transparent;
+		}
+
+		.filters-wrapper-toggle {
+			display: none;
+		}
+
+		.filter-item {
+			padding: 14px 32px;
+			border: 1px solid var(--wp--preset--color--black);
+			border-radius: 44px;
+
+			.filter-item-title {
+				align-items: baseline;
+				min-width: auto;
+				padding: 0;
+				font-size: 18px;
+				font-weight: 800;
+				line-height: 24.59px;
+			}
+		}
+
+		.filters-wrapper {
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+	}
+
+}
