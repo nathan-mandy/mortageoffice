@@ -55,8 +55,7 @@
 		}
 
 		.post-title {
-			margin: 0;
-			padding: 8px 0 16px;
+			margin: 8px 0 0;
 			color: #2A2A2A;
 			font-size: 18px;
 			font-weight: 700;
@@ -75,6 +74,8 @@
 		}
 
 		.card-footer {
+			margin-top: 20px;
+
 			a {
 				font-size: 16px;
 				font-weight: 800;
@@ -104,6 +105,7 @@
 	}
 
 	.card-term.resource-term {
+		margin-left: 0;
 		padding: 4px 10px;
 		border-radius: 38px;
 		background-color: #46E88C40;
@@ -140,8 +142,9 @@
 	}
 
 	.card-footer {
+		margin-top: 12px;
+
 		a {
-			margin-top: 12px;
 			font-size: 16px;
 			font-weight: 800;
 			line-height: 24px;
