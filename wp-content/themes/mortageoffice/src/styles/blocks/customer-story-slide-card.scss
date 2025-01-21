@@ -180,16 +180,7 @@
 
 .wp-block-vital-swiper {
 	@include respond-to($xlarge,min) {
-		max-width: 1330px;
-	}
-
-	.customer-story-slide {
-		.card-image .stats {
-			left: calc(23% - 20px);
-			@include respond-to($xlarge,max) {
-				left: calc(15% - 20px);
-			}
-		}
+		max-width: 1330px !important;
 	}
 
 	.swiper-pagination-bullet {
@@ -203,6 +194,10 @@
 	.swiper-pagination-bullet-active {
 		opacity: inherit;
 		background: var(--wp--preset--color--mint);
+	}
+
+	.stats {
+		width: 216px !important;
 	}
 
 }
