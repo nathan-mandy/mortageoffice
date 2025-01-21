@@ -51,6 +51,10 @@
 
 			.location {
 				padding: 0 0 0 16px ;
+
+				@include respond-to($xsmall,max) {
+					padding: 0;
+				}
 			}
 		}
 	}
