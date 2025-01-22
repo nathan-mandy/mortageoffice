@@ -1,0 +1,67 @@
+.career-card {
+	padding-bottom: 16px;
+	border-top: 1px solid #D7D7E4;
+
+	.career-content {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: 35px 0;
+
+		@include respond-to($medium,max) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.card-terms,
+		.card-terms a {
+			align-items: normal;
+			width: 100%;
+			font-size: 16px;
+			font-weight: 500;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 26px;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+			@include respond-to($medium,max) {
+				justify-content: flex-start;
+				text-align: left;
+			}
+		}
+
+		.career-title {
+			flex: 1 0 auto;
+			width: 40%;
+			margin: 0;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: 0.10000000149011612px;
+			line-height: 28px;
+		}
+
+		.career-location {
+			text-indent: 40px;
+			@include respond-to($medium,max) {
+				text-indent: 0;
+			}
+		}
+	}
+
+	.wp-block-button.is-style-text .wp-block-button__link::after {
+		width: 28px;
+		height: 27px;
+		background-image: url('../src/images/career-button.png');
+
+		@include respond-to($medium,max) {
+			position: absolute;
+			top: calc(40% - 30px);
+			right: 30px;
+		}
+	}
+
+}
+
+.career {
+	margin-top: 0;
+}

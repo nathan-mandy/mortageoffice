@@ -1,0 +1,32 @@
+<article {{{_block_attributes}}}>
+    {{#has_object}}		
+        <section class="career-content">
+            {{#title}}
+            <h3 class="career-title">{{{ . }}}</h3>
+            {{/title}}
+
+            <div class="card-terms career-department">
+                {{#career_department}}
+                {{#permalink}}<a href="{{permalink}}" class="card-term-link">{{/permalink}}<span class="career-term">{{{name}}}</span>{{#permalink}}</a>{{/permalink}}
+                {{/career_department}}
+            </div>
+
+            <div class="card-terms career-type">
+                {{#career_emp_type}}
+                {{#permalink}}<a href="{{permalink}}" class="card-term-link">{{/permalink}}<span class="career-term">{{{name}}}</span>{{#permalink}}</a>{{/permalink}}
+                {{/career_emp_type}}
+            </div>
+
+            <div class="card-terms career-location wp-block-button is-style-text">
+                {{#career_location}}
+                {{#permalink}}<a href="{{permalink}}" class="card-term-link wp-block-button__link wp-element-button">{{/permalink}}<span class="career-term">{{{name}}}</span>{{#permalink}}</a>{{/permalink}}
+                {{/career_location}}
+            </div>
+        </section>
+    {{/has_object}}
+    {{^has_object}}
+        {{#is_preview}}
+        <div class="block-editor-notification">Select a career post to display. This section will not display on the front end.</div>
+        {{/is_preview}}
+    {{/has_object}}
+</article>
