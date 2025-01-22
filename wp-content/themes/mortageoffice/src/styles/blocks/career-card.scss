@@ -17,12 +17,14 @@
 		.card-terms a {
 			align-items: normal;
 			width: 100%;
+			color: var(--wp--preset--color--baltic-sea);
 			font-size: 16px;
 			font-weight: 500;
 			letter-spacing: 0.10000000149011612px;
 			line-height: 26px;
 			text-align: center;
 			text-decoration: none;
+			gap: 32px;
 			cursor: pointer;
 			@include respond-to($medium,max) {
 				justify-content: flex-start;
@@ -34,10 +36,16 @@
 			flex: 1 0 auto;
 			width: 40%;
 			margin: 0;
+			color: var(--wp--preset--color--baltic-sea);
 			font-size: 18px;
 			font-weight: 700;
 			letter-spacing: 0.10000000149011612px;
 			line-height: 28px;
+			cursor: pointer;
+		}
+
+		.career-title a {
+			text-decoration: none;
 		}
 
 		.career-location {
