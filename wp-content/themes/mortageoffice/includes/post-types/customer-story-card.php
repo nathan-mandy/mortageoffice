@@ -47,6 +47,7 @@ class CustomerStoryCard {
                 'author',
                 'page-attributes',
             ),
+            'show_in_rest' => true,
         );
 
         register_post_type('customer_stories', $args);
