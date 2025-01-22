@@ -2,7 +2,9 @@
     {{#has_object}}		
         <section class="career-content">
             {{#title}}
-            <h3 class="career-title">{{{ . }}}</h3>
+            <h3 class="career-title">
+                {{#permalink}}<a href="{{permalink}}" class="career-title-link">{{/permalink}}{{{ . }}}{{#permalink}}</a>{{/permalink}}
+            </h3>
             {{/title}}
 
             <div class="card-terms career-department">
