@@ -12,8 +12,8 @@
 		width: auto;
 		height: auto;
 		margin: 0 auto;
-		border: none;
-		gap: 24px;
+		border: 1px solid var(--wp--preset--color--concrete);
+		gap: 0;
 
 		@include respond-to($small,max) {
 			flex-direction: column;
@@ -23,18 +23,20 @@
 		}
 
 		.card-image {
-			width: auto;
+			width: 50%;
 			height: auto;
 
 			img {
-				border-radius: 0;
+				border-top-left-radius: 16px;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 16px;
 			}
 		}
 
 		.card-content {
-			width: auto;
+			width: 50%;
 			height: auto;
-			padding: 0;
+			padding: 0 48px;
 
 		}
 
