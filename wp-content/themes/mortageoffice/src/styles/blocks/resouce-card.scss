@@ -59,26 +59,25 @@
 		.post-title {
 			margin: 8px 0 0;
 			color: #2A2A2A;
-			font-size: 18px;
-			font-weight: 700;
-			letter-spacing: -0.10000000149011612px;
-			line-height: 28px;
+			@extend h3;
 
 			a {
 				color: #2A2A2A;
-				font-size: 18px;
-				font-weight: 700;
-				letter-spacing: -0.10000000149011612px;
-				line-height: 28px;
+				@extend h3;
 				text-decoration: none;
 				cursor: pointer;
 			}
 		}
 
+		.card-excerpt p {
+			font-weight: 500;
+		}
+
 		.card-footer {
-			margin-top: 20px;
+			margin-top: 0;
 
 			a {
+				margin-top: 28px;
 				font-size: 16px;
 				font-weight: 800;
 				line-height: 24px;
