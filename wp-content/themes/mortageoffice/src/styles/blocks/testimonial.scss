@@ -32,8 +32,9 @@
 		margin: 35px 50px;
 	}
 
-	.wp-block-image {
-		max-width: 200px;
+	.wp-block-image img {
+		width: 110px;
+		height: 80px;
 		object-fit: cover;
 
 	}
@@ -122,7 +123,14 @@
 		}
 
 		.wp-block-image {
+			width: 100%;
+			max-width: 200px;
 			padding-bottom: 16px;
+		}
+
+		.wp-block-image img {
+			width: auto;
+			height: auto;
 		}
 
 		.testimonial-content {
