@@ -4,3 +4,11 @@ li {
 	font-weight: 500;
 	letter-spacing: 0.10000000149011612px;
 }
+
+.main {
+	padding-top: var(--header-height);
+
+	> *:first-child:not(.no-auto-header-padding) {
+		padding-top: initial;
+	}
+}

@@ -1,0 +1,24 @@
+/* stylelint-disable declaration-no-important */
+
+.header-landing {
+	--header-height: 65px;
+	position: relative !important;
+	justify-content: center !important;
+
+	.home-link {
+		> * {
+			height: 35px;
+		}
+	}
+}
+
+.landing-page {
+	--header-height: 0 !important;
+	@include respond-to($navigation) {
+		--header-height: 0 !important;
+	}
+
+	.main {
+		padding-top: var(--header-height);
+	}
+}
