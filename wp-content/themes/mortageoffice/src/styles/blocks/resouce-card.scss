@@ -1,3 +1,5 @@
+/* stylelint-disable  declaration-no-important */
+
 .post-card {
 	width: 375px;
 	margin: 0 auto;
@@ -143,9 +145,8 @@
 	}
 
 	.card-footer {
-		margin-top: 12px;
-
 		a {
+			margin-top: 28px;
 			font-size: 16px;
 			font-weight: 800;
 			line-height: 24px;
@@ -172,4 +173,44 @@
 
 .card-term-link {
 	color: #2A2A2A;
+}
+
+.skeletor-resource-card.post-card.is-style-horizontal {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border: none !important;
+	border-bottom: 1px solid var(--wp--preset--color--concrete) !important;
+	gap: 24px;
+	border-radius: 0;
+
+	.card-image {
+		width: auto;
+
+		img {
+			border-radius: 0;
+		}
+	}
+
+	.card-content {
+		width: auto;
+		padding: 0;
+	}
+
+	.post-title {
+		a {
+			color: #2A2A2A;
+
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: -0.10000000149011612px;
+			line-height: 28px;
+		}
+
+	}
+
+	.card-footer {
+		a {
+			margin-top: 20px;
+		}
+	}
 }
