@@ -97,6 +97,9 @@
 	.card-image {
 		.wp-block-image {
 			aspect-ratio: 0;
+			height: 230px;
+			overflow: hidden;
+			object-fit: cover;
 		}
 
 		img {
@@ -184,7 +187,7 @@
 	border-radius: 0;
 
 	.card-image {
-		width: auto;
+		width: 130px;
 
 		img {
 			border-radius: 0;
