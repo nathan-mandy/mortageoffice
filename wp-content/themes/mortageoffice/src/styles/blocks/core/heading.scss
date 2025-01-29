@@ -1,105 +1,88 @@
 .is-style-display-heading {
-
-	font-size: 38px;
+	font-size: clamp(2.375rem, 1.375rem + 2vw, 3.75rem);
 	font-weight: 700;
 	letter-spacing: -1px;
-	line-height: 43.7px;
+	line-height: calc(66/60);
 
-	@include respond-to($navigation,min) {
-		font-size: 60px;
-		font-style: normal;
-		font-weight: 700;
-		letter-spacing: -1px;
-		line-height: 66px;
+	@include respond-to($navigation,max) {
+		line-height: calc(43.7/38);
 	}
-
 }
 
 .is-style-eyebrow-heading {
 	color: var(--wp--preset--color--egyptian-blue);
-	font-size: 14px;
+	font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
 	font-weight: 800;
 	letter-spacing: 2px;
-	line-height: 28px;
+	line-height: calc(28/14);
 	text-transform: uppercase;
 }
 
 h1,
 .h1,
 %h1 {
-	font-size: 32px;
+	font-size: clamp(2rem, 1.2727rem + 1.4545vw, 3rem);
 	font-weight: 700;
-	letter-spacing: -0.5px;
-	line-height: 42.88px;
+	letter-spacing: -1px;
+	line-height: calc(58/48);
 
-	@include respond-to($navigation,min) {
-
-		font-size: 48px;
-		font-weight: 700;
-		letter-spacing: -1px;
-		line-height: 58px;
+	@include respond-to($navigation,max) {
+		letter-spacing: -0.5px;
+		line-height: calc(42.88/32);
 	}
 }
 
 h2,
 .h2,
 %h2 {
-	font-size: 26px;
+	font-size: clamp(1.625rem, 1.1705rem + 0.9091vw, 2.25rem);
 	font-weight: 700;
-	letter-spacing: -0.4000000059604645px;
-	line-height: 31.2px;
+	letter-spacing: -0.8px;
+	line-height: calc(51/36);
 
-	@include respond-to($navigation,min) {
-		font-size: 36px;
-		font-weight: 700;
-		letter-spacing: -0.800000011920929px;
-		line-height: 51px;
+	@include respond-to($navigation,max) {
+		letter-spacing: -0.4px;
+		line-height: calc(31.2/26);
 	}
 }
 
 h3,
 .h3,
 %h3 {
-	font-size: 20px;
-	font-weight: 700;
-	letter-spacing: -0.10000000149011612px;
-	line-height: 28px;
+	font-size: clamp(1.25rem, 1.0682rem + 0.3636vw, 1.5rem);
+	font-weight: 800;
+	letter-spacing: -0.1px;
+	line-height: calc(31.68/24);
 
-	@include respond-to($navigation,min) {
-		font-size: 24px;
-		font-weight: 800;
-		letter-spacing: -0.10000000149011612px;
-		line-height: 31.68px;
+	@include respond-to($navigation,max) {
+		font-weight: 700;
+		line-height: calc(28/20);
 	}
 }
 
 h4,
 .h4,
 %h4 {
-
-	font-size: 18px;
+	font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
 	font-weight: 700;
-	letter-spacing: -0.10000000149011612px;
-	line-height: 28px;
-
+	letter-spacing: -0.1px;
+	line-height: calc(28/18);
 }
 
 h5,
 .h5,
 %h5 {
-
-	font-size: 16px;
+	font-size: clamp(1rem, 1rem + 0vw, 1rem);
 	font-weight: 500;
-	letter-spacing: 0.10000000149011612px;
-	line-height: 24px;
-
+	letter-spacing: 0.1px;
+	line-height: calc(24/16);
 }
 
 h6,
 .h6,
 %h6 {
-	font-size: 14px;
+	font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
 	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 20px;
+	line-height: calc(20/14);
 }
