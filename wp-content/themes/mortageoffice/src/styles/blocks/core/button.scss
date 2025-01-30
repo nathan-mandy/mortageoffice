@@ -2,11 +2,11 @@
 
 .wp-block-button__link {
 	padding: 14px 32px !important;
-	//border: none;
+	border: none;
 	border-radius: 44px !important;
-	font-size: 18px;
+	font-size: var(--wp--preset--font-size--large);
 	font-weight: 800;
-	line-height: 24.59px;
+	line-height: calc(24.59/18);
 }
 
 .gform_footer .wp-block-button.is-style-outline>.gform_button:not(.has-text-color),
@@ -26,7 +26,8 @@
 
 	.wp-block-button__link {
 		color: var(--wp--custom--colors--button-bg) !important;
-		font-size: 16px !important;
+		font-size: var(--wp--preset--font-size--medium) !important;
+		line-height: calc(24/16);
 	}
 }
 
@@ -67,10 +68,6 @@
 		font-weight: 800;
 		letter-spacing: 0.10000000149011612px;
 		line-height: 24px;
-
-		@include respond-to($xlarge,max) {
-			padding: 6px 12px !important;
-		}
 	}
 
 	a {
@@ -80,28 +77,12 @@
 	}
 }
 
-.is-style-small-buttton {
+.size-small {
 	.wp-block-button__link {
 		padding: 10px 16px !important;
 		border-radius: 36px !important;
-		font-size: 16px;
+		font-size: var(--wp--preset--font-size--medium);
 		font-weight: 800;
-		line-height: 24px;
-	}
-}
-
-.is-style-small-outline-buttton {
-	.wp-block-button__link {
-		padding: 10px 16px !important;
-		border-radius: 36px !important;
-		background: transparent;
-		font-size: 16px;
-		font-weight: 800;
-		line-height: 24px;
-
-		&:hover {
-			border-color: transparent;
-			background-color: var(--wp--custom--colors--button-bg-hover);
-		}
+		line-height: calc(24/16);
 	}
 }
