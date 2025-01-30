@@ -1,18 +1,24 @@
-.has-large-font-size {
-	line-height: 24px;
-	@include respond-to($navigation,min) {
-		line-height: 28px;
+.is-style-large-paragraph {
+	font-size: clamp(1rem, 0.9091rem + 0.1818vw, 1.125rem);
+	font-weight: 500;
+	letter-spacing: 0.1px;
+	line-height: calc(28/18);
+
+	@include respond-to($navigation,max) {
+		line-height: calc(24/16);
 	}
-
 }
 
-.has-medium-font-size {
-	line-height: 26px;
-
+.is-style-medium-paragraph {
+	font-size: clamp(1rem, 1rem + 0vw, 1rem);
+	font-weight: 500;
+	letter-spacing: 0.1px;
+	line-height: calc(26/16);
 }
 
-.has-small-font-size {
+.is-style-small-paragraph {
+	font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
+	font-weight: 500;
 	letter-spacing: normal;
-	line-height: 24px;
-
+	line-height: calc(24/14);
 }
