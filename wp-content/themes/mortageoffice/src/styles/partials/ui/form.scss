@@ -10,10 +10,19 @@
 	}
 
 	.gform-field-label {
+		margin-bottom: 8px !important;
 		color: #FFFFFF;
 		font-size: 14px !important;
 		font-weight: 400 !important;
 		line-height: 20px;
+	}
+
+	.ginput_container {
+		margin-top: 0 !important ;
+	}
+
+	.ginput_complex label {
+		padding-top: 0 !important;
 	}
 
 	.gfield-optional,
@@ -40,6 +49,10 @@
 		text-align: center;
 	}
 
+	.validation_message {
+		display: none;
+	}
+
 	input,
 	select,
 	textarea {
@@ -48,6 +61,7 @@
 	}
 
 	::placeholder {
+		opacity: 1 !important;
 		color: var(--wp--preset--color--charcoal);
 		font-size: 16px;
 		font-weight: 400;
@@ -78,6 +92,7 @@
 	}
 
 	.gfield_description {
+		margin: 16px 0 !important;
 		padding: 10px 12px !important;
 		overflow-y: hidden !important;
 		border-color: var(--wp--preset--color--concrete) !important;
@@ -116,10 +131,13 @@
 	}
 
 	.ginput_container_select::after {
+		top: 15px;
 		right: 14px !important;
 		width: 22px !important;
 		height: 20px !important;
+		background-image: url('../src/images/Arrow Down.png');
 		color: var(--wp--preset--color--charcoal-blue) !important;
+		content: '';
 	}
 
 	.gfield_select {
@@ -128,13 +146,37 @@
 		}
 	}
 
-	.gfield_error label {
-		color: #FF4646 !important;
+	// .gfield_error label {
+	// 	color: #FF4646 !important;
 
-	}
+	// }
 
-	.gfield.gfield_error input {
+	.gfield.gfield_error {
 		border: none !important;
+
+		input {
+			background-color: var(--wp--custom--colors--validation-bg);
+		}
+
+		input:focus {
+			outline: none !important;
+			border-radius: 0 !important;
+			border-top-color: transparent !important;
+			border-right-color: transparent !important;
+			border-bottom-color: var(--wp--preset--color--egyptian-blue) !important;
+			border-left-color: transparent !important;
+			background: none !important;
+			color: #FFFFFF !important;
+		}
+
+		.ginput_container_consent > [type=checkbox] + label::before,
+		.gfield-choice-input + label::before {
+			border: 1px solid #FF4646;
+		}
+
+		.gfield-choice-input+label {
+			color: var(--wp--preset--color--white);
+		}
 	}
 
 	.validation_message {
@@ -274,29 +316,15 @@
 	}
 }
 
-// Styles for consent checkboxes
-
 .ginput_container_consent {
 	> [type='checkbox'] {
-		+ label::before {
-			top: -5px !important;
-		}
-
 		+ label::after {
-			top: 1px !important;
+			top: 5px !important;
 			margin-left: 4px;
 		}
 
 		@include gfield_choice();
 		@include gfield_choice_checkbox();
-	}
-
-	+ .gfield_consent_description {
-		margin-top: 18px;
-		padding: 10px;
-		border: 1px solid var(--wp--preset--color--light-grey);
-		font-size: 12px;
-		line-height: calc(24 / 14);
 	}
 }
 
@@ -304,7 +332,3 @@
 	align-items: center;
 	margin: 10px 0 ;
 }
-/* Default (empty) state */
-
-/* Filled state
-/* Customize the placeholder text color */
