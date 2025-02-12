@@ -18,7 +18,11 @@
 		@include respond-to($navigation,min) {
 			top: 18px;
 			left: 0;
-			height: 255px;
+			display: block;
+		}
+		@include respond-to($navigation,max) {
+			display: block;
+			border-bottom: 1px solid var(--wp--preset--color--concrete);
 		}
 	}
 }
@@ -63,15 +67,15 @@
 	}
 }
 
-.column-dividers {
-	padding-right: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
-	padding-left: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
-}
+.dividers {
+	@include respond-to($medium - 1px,max) {
+		gap: 24px !important;
+	}
 
-.column-divider {
-	padding-right: clamp(1.5rem, 0.0455rem + 2.9091vw, 3.5rem);
-
-	@include respond-to($xsmall,max) {
-		padding-left: 24px;
+	.wp-block-column {
+		@include respond-to($navigation - 1px,max) {
+			padding-bottom: 16px;
+			border-bottom: 1px solid var(--wp--preset--color--concrete);
+		}
 	}
 }
