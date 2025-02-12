@@ -7,6 +7,10 @@
 	font-size: var(--wp--preset--font-size--large);
 	font-weight: 800;
 	line-height: calc(24.59/18);
+
+	&:active {
+		background: var(--wp--custom--colors--button-bg);
+	}
 }
 
 .gform_footer .wp-block-button.is-style-outline>.gform_button:not(.has-text-color),
@@ -84,5 +88,17 @@
 		font-size: var(--wp--preset--font-size--medium);
 		font-weight: 800;
 		line-height: calc(24/16);
+	}
+}
+
+.wp-block-button.is-style-outline {
+	.wp-block-button__link {
+		padding: 12px 30px !important;
+		@include respond-to($navigation,max) {
+			padding: 12px 20px !important;
+		}
+		@include respond-to($xsmall,max) {
+			padding: 10px 14px !important;
+		}
 	}
 }
