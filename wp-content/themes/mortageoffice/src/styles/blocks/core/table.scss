@@ -12,6 +12,7 @@
 	}
 
 	thead {
+		overflow: hidden;
 		border-bottom: none;
 		background-color: var(--wp--preset--color--egyptian-blue);
 
@@ -27,6 +28,7 @@
 	}
 
 	table {
+		overflow: hidden;
 		border-radius: 24px;
 		border-collapse: separate;
 		border-spacing: 0;
