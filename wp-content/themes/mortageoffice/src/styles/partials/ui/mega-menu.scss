@@ -17,6 +17,8 @@
 	}
 
 	.wp-block-media-text__content {
+		display: flex;
+		flex-direction: column;
 		padding: 0 !important;
 	}
 }
@@ -44,8 +46,9 @@
 }
 
 .icon-more {
-
 	@include respond-to($large,max) {
+		display: flex;
+		flex-direction: column;
 		padding: 0 !important;
 		padding-bottom: 60px !important;
 	}

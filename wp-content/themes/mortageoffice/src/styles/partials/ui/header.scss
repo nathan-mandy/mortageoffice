@@ -58,6 +58,10 @@
 		max-width: var(--wp--custom--container-width--xwide);
 		margin-inline: auto;
 		gap: var(--wp--custom--gutter-width--page);
+
+		@include respond-to($xlarge,max) {
+			gap: 20px;
+		}
 	}
 }
 
