@@ -14,3 +14,4 @@ require_once $inc . 'class-custom-fields.php';
 require_once $inc . 'customer-story-slide.php';
 require_once $inc . 'post-types/careers.php';
 require_once $inc . 'career-card.php';
+require_once $inc . 'landing-page.php';

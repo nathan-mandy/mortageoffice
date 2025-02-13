@@ -4,6 +4,12 @@
 	--header-height: 65px;
 	position: relative !important;
 	justify-content: center !important;
+	transform: none !important;
+
+	@include respond-to($navigation) {
+		--header-height: 65px !important;
+		justify-content: center !important;
+	}
 
 	.home-link {
 		> * {
@@ -12,7 +18,7 @@
 	}
 }
 
-.landing-page {
+.landing-page.is-gated-resource {
 	--header-height: 0 !important;
 	@include respond-to($navigation) {
 		--header-height: 0 !important;
@@ -20,5 +26,40 @@
 
 	.main {
 		padding-top: var(--header-height);
+	}
+}
+
+.footer-landing {
+	margin-top: 72px;
+	padding-bottom: 8px;
+	border-top: 1px solid var(--wp--preset--color--concrete);
+	padding-inline: var(--wp--custom--gutter-width--page);
+
+	.footer-landing-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		max-width: var(--wp--style--global--wide-size);
+		margin: auto;
+		padding-block: 18px;
+		gap: 24px;
+
+		@include respond-to($medium) {
+			flex-direction: row;
+		}
+	}
+
+	.footer-copyright {
+		margin: 0;
+		font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
+		letter-spacing: normal;
+		line-height: calc(24/14);
+	}
+
+	.home-link {
+		> * {
+			height: 35px;
+		}
 	}
 }
