@@ -1,8 +1,9 @@
 /* stylelint-disable  declaration-no-important */
 
 .single-resource-hero {
-	padding-top: 75px !important;
-	padding-bottom: 75px !important;
+	margin-bottom: clamp(2.5rem, -0.5909rem + 6.1818vw, 6.75rem);
+	padding-top: clamp(2.8125rem, 1.4489rem + 2.7273vw, 4.6875rem) !important;
+	padding-bottom: clamp(2.8125rem, 1.4489rem + 2.7273vw, 4.6875rem) !important;
 	background: var(--wp--preset--color--frost) ;
 
 	.hero-contents {
@@ -121,21 +122,37 @@
 }
 
 .single-resource-gated-content {
-	margin-top: 108px;
 	gap: 70px !important;
-	padding: 0 24px;
+
+	@include respond-to($navigation,max) {
+		flex-direction: column !important;
+		gap: 30px !important;
+	}
 }
 
 .single-resource-content {
 	width: 45% !important;
+
+	@include respond-to($navigation,max) {
+		width: 100% !important;
+	}
 }
 
 .single-resource-gated-form {
 	width: 55% !important;
+	@include respond-to($navigation,max) {
+		width: 100% !important;
+	}
 }
 
 .single-resource-content.ungated {
 	width: 100% !important;
 	max-width: var(--wp--style--global--content-size);
 	margin-top: 72px;
+}
+
+.is-thank-you {
+	.single-resource-lede {
+		width: 100%;
+	}
 }
