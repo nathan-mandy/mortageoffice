@@ -1,0 +1,60 @@
+.career-banner {
+	display: flex;
+	flex-direction: column;
+	background: url('./images/careers-banner.png') top right/auto no-repeat var(--wp--preset--color--frost);
+
+	@include respond-to($navigation,max) {
+		background: url('./images/careers-banner.png') top right/150px no-repeat var(--wp--preset--color--frost);
+	}
+
+	.career-detail {
+		width: 100%;
+		margin: 0 auto;
+
+		.career-attributes {
+			display: flex;
+			gap: 48px;
+			padding-bottom: clamp(4rem, 2.1818rem + 3.6364vw, 6.5rem);
+			@include respond-to($medium,max) {
+				flex-direction: column;
+				gap: 24px;
+			}
+
+			.attributes-list {
+				padding-right: 48px;
+				border-right: 1px solid var(--wp--preset--color--concrete);
+
+				@include respond-to($medium,max) {
+					padding-bottom: 24px;
+					border-right: none;
+					border-bottom: 1px solid var(--wp--preset--color--concrete);
+				}
+			}
+
+			.attributes-list:last-of-type {
+				border-right: none;
+			}
+
+			.content-copy {
+				color: var(--wp--preset--color--charcoal);
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 0.1px;
+				line-height: calc(28 / 18);
+			}
+		}
+
+		.post-title-wrapper {
+			padding-top: clamp(2.25rem, 0.6136rem + 3.2727vw, 4.5rem);
+
+			.is-style-eyebrow-heading {
+				margin: 0;
+			}
+
+			.post-title {
+				margin-top: 8px;
+				margin-bottom: clamp(1.5rem, 0.5rem + 2vw, 2.875rem);
+			}
+		}
+	}
+}
