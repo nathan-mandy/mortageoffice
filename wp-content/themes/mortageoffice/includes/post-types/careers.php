@@ -33,7 +33,7 @@ class Career_Post_Type {
         $args = array(
             'labels'             => $labels,
             'public'             => true,
-            'has_archive'        => true,
+            'has_archive'        => 'careers',
             'show_ui'            => true,
             'capability_type'    => 'post',
             'hierarchical'       => false,
