@@ -155,6 +155,7 @@
 
 .testimonial-swiper {
 	.wp-block-vital-swiper {
+		padding: 0 24px;
 		@include respond-to($large,max) {
 			max-width: 100%;
 		}
