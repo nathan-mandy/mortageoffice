@@ -1,0 +1,25 @@
+<section class="career-banner alignfull wp-block-group">
+    <section class="skeletor-blog-posts__blog-detail-back-to-nav blog-detail-back-to-nav career-detail-back">
+        <p class="breadcrumb is-style-default">
+            <a href="{{back_link}}" class="back-link">{{back_label}}</a>
+        </p>
+    </section>
+    <section class="career-detail alignwide">
+        <div class="post-title-wrapper">
+            <h2 class="wp-block-heading is-style-eyebrow-heading">{{career_title}}</h2>
+            <h1 class="post-title">{{post_title}}</h1>
+        </div>
+        {{#career_attributes.0}}
+            <div class="career-attributes">
+                {{#career_attributes}}
+                    <div class="{{label_lowercase}}-list attributes-list">
+                        <div class="label is-style-eyebrow-heading">{{label}}</div>
+                        {{#list}}
+                        <div class="content-copy">{{.}}</div>
+                        {{/list}}
+                    </div>
+                {{/career_attributes}}
+            </div>
+         {{/career_attributes.0}}
+    </section>
+</section>
