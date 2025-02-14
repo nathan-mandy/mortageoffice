@@ -1,0 +1,38 @@
+.blog-detail-back-to-nav {
+	margin-top: clamp(1.5rem, 1.1364rem + 0.7273vw, 2rem);
+
+	.breadcrumb {
+		max-width: var(--wp--custom--container-width--xwide);
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.back-link {
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px;
+		text-transform: capitalize;
+
+		&::before {
+			width: 17px;
+			height: 18px;
+			transform: none;
+			background: none;
+			background-image: url('./images/chevron-thin.svg');
+			background-repeat: no-repeat;
+			transition: all 0.2s ease;
+
+
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			&::before {
+				margin-left: -3px;
+				transform: none;
+			}
+		}
+	}
+}
