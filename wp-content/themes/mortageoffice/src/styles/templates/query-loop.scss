@@ -1,0 +1,13 @@
+/* stylelint-disable declaration-no-important */
+
+.query-loop-post-templates {
+	@include respond-to($large,max) {
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	}
+	@include respond-to($navigation,max) {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+	@include respond-to($small,max) {
+		grid-template-columns: 1fr !important;
+	}
+}
