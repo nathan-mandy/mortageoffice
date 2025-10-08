@@ -119,3 +119,8 @@ error_log
 
 # But NOT the build folder!
 wp-content/themes/mortageoffice/build/
+
+# Track GitHub workflows
+!/.github/
+!/.github/workflows/
+!/.github/workflows/ci.yml
