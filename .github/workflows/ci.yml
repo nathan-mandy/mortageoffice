@@ -1,4 +1,4 @@
-name: WordPress CI - Theme Style & Build Check
+name: WordPress Theme CI - Lint & Build
 
 on:
   push:
@@ -11,34 +11,55 @@ on:
       - 'wp-content/themes/mortageoffice/**/*.{scss,css,js}'
 
 jobs:
-  theme-style-check:
+  lint-and-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      # Step 1: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Match your local Node version
+          node-version: '20'
 
-      - name: Install Theme Dependencies
+      # Step 3: Cache Node modules
+      - name: Cache Node modules
+        uses: actions/cache@v3
+        with:
+          path: wp-content/themes/mortageoffice/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('wp-content/themes/mortageoffice/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Step 4: Install dependencies
+      - name: Install Dependencies
         run: |
           cd wp-content/themes/mortageoffice
           npm install
 
+      # Step 5: Lint SCSS/CSS
       - name: Lint SCSS/CSS
         run: |
           cd wp-content/themes/mortageoffice
           npx stylelint "**/*.{scss,css}" --custom-syntax "postcss-scss" --fix
 
-      - name: Lint JS
+      # Step 6: Lint JS
+      - name: Lint JavaScript
         run: |
           cd wp-content/themes/mortageoffice
           npx eslint "**/*.js" --fix
 
+      # Step 7: Build Theme
       - name: Build Theme
         run: |
           cd wp-content/themes/mortageoffice
           npm run build
+
+      # Step 8 (Optional): Preview Build Output
+      - name: List Build Files
+        run: |
+          cd wp-content/themes/mortageoffice
+          ls -R dist
