@@ -6,7 +6,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding: 34px 0;
+		padding: 35px 0;
 
 		@include respond-to($medium,max) {
 			flex-direction: column;
