@@ -27,22 +27,17 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install Dependencies
-        run: npm ci
-
       - name: Lint SCSS/CSS
-        run: npx stylelint "wp-content/themes/mortageoffice/**/*.{scss,css}"
+        run: |
+          cd wp-content/themes/mortageoffice
+          npx stylelint "**/*.{scss,css}"
 
       - name: Lint JS
-        run: npx eslint "wp-content/themes/mortageoffice/**/*.js"
+        run: |
+          cd wp-content/themes/mortageoffice
+          npx eslint "**/*.js"
 
       - name: Build Theme Styles
-        run: npm run build
+        run: |
+          cd wp-content/themes/mortageoffice
+          npm run build
