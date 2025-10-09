@@ -25,7 +25,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'  # Match your local environment
+
+      - name: Install Theme Dependencies
+        run: |
+          cd wp-content/themes/mortageoffice
+          npm install stylelint stylelint-order eslint --save-dev
 
       - name: Lint SCSS/CSS
         run: |
