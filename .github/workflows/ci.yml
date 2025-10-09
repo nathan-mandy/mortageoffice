@@ -21,9 +21,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20'  # Match your local Node version
 
-      - name: Install Dependencies
+      - name: Install Theme Dependencies
         run: |
           cd wp-content/themes/mortageoffice
           npm install
@@ -31,19 +31,14 @@ jobs:
       - name: Lint SCSS/CSS
         run: |
           cd wp-content/themes/mortageoffice
-          npx stylelint "**/*.{scss,css}" --custom-syntax postcss-scss || echo "Lint warnings/errors ignored for CI"
+          npx stylelint "**/*.{scss,css}" --custom-syntax "postcss-scss" --fix
 
       - name: Lint JS
         run: |
           cd wp-content/themes/mortageoffice
-          npx eslint "**/*.js" || echo "Lint warnings/errors ignored for CI"
+          npx eslint "**/*.js" --fix
 
       - name: Build Theme
         run: |
           cd wp-content/themes/mortageoffice
           npm run build
-
-      - name: Start Dev Server
-        run: |
-          cd wp-content/themes/mortageoffice
-          npm start
