@@ -5,7 +5,7 @@
 	border-radius: 24px;
 	background: var(--wp--preset--color--charcoal-blue);
 
-	@include respond-to ($medium,max) {
+	@include respond-to ($medium, max) {
 		padding: 21px 41px 27px;
 	}
 
@@ -146,11 +146,6 @@
 		}
 	}
 
-	// .gfield_error label {
-	// 	color: #FF4646 !important;
-
-	// }
-
 	.gfield.gfield_error {
 		border: none !important;
 
@@ -256,13 +251,11 @@
 	}
 }
 
-// Radio-specific styles
+/* Radio-specific styles */
 @mixin gfield_choice_radio {
-	// Apply border-radius by default, not only when checked
-
 	& + label::before,
 	& + label::after {
-		border-radius: 50%; // This will make the radio button circular by default
+		border-radius: 50%;
 	}
 
 	&:checked + label::before {
@@ -276,7 +269,7 @@
 	}
 }
 
-// Checkbox-specific styles
+/* Checkbox-specific styles */
 @mixin gfield_choice_checkbox {
 	&:checked + label::after {
 		background-image: url('../src/images/form-checkbox.png');
@@ -288,7 +281,7 @@
 .gfield-choice-input {
 	@include gfield_choice();
 
-	// Apply checkbox-specific styles within .gfield-choice-input
+	/* Apply checkbox-specific styles within .gfield-choice-input */
 	@at-root {
 		.gfield_checkbox & {
 			@include gfield_choice_checkbox();
@@ -302,7 +295,7 @@
 
 	}
 
-	// Apply radio-specific styles within .gfield-choice-input
+	/* Apply radio-specific styles within .gfield-choice-input */
 	@at-root {
 		.gfield_radio & {
 			@include gfield_choice_radio();

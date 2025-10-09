@@ -202,7 +202,6 @@
 		 * @type {[type]}
 		 */
 @mixin tap-color($color: transparent) {
-	//default: rgba(0, 0, 0, 0.4)
 	-webkit-tap-highlight-color: $color;
 }
 
